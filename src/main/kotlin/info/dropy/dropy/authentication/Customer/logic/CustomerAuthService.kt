@@ -15,7 +15,9 @@ class CustomerAuthService @Autowired constructor(private val repository: Custome
     }
 
     override fun loadUserByUsername(username: String?): UserDetails {
-        TODO("Not yet implemented")
+        val customer = repository.findByEmail(username)
+        val customerPrincipal = CustomerPrincipal(customer)
+        return customerPrincipal
     }
 
 }

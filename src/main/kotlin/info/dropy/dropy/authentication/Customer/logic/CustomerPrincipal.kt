@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
 
 @Service
-class CustomerPrincipal @Autowired constructor(private val customer: Customer): UserDetails{
+class CustomerPrincipal @Autowired constructor(private val customer: Customer?): UserDetails{
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         val authorities = mutableListOf<GrantedAuthority>()
         val authority = SimpleGrantedAuthority(customer.authority.name)
