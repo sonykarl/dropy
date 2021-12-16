@@ -11,17 +11,17 @@ import org.springframework.stereotype.Service
 class CustomerPrincipal @Autowired constructor(private val customer: Customer?): UserDetails{
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         val authorities = mutableListOf<GrantedAuthority>()
-        val authority = SimpleGrantedAuthority(customer.authority.name)
+        val authority = SimpleGrantedAuthority(customer?.authority?.name)
         authorities.add(authority)
         return authorities
     }
 
     override fun getPassword(): String {
-        return customer.password
+        return customer!!.password
     }
 
     override fun getUsername(): String {
-        return customer.email
+        return customer!!.email
     }
 
     override fun isAccountNonExpired(): Boolean {
@@ -29,14 +29,14 @@ class CustomerPrincipal @Autowired constructor(private val customer: Customer?):
     }
 
     override fun isAccountNonLocked(): Boolean {
-        return customer.locked
+        return customer!!.locked
     }
 
     override fun isCredentialsNonExpired(): Boolean {
-        return customer.expired
+        return customer!!.expired
     }
 
     override fun isEnabled(): Boolean {
-        return customer.isEnabled
+        return customer!!.isEnabled
     }
 }
