@@ -24,5 +24,5 @@ data class Customer (
     @Column(name="IsAccountEnabled")
     val isEnabled:Boolean = true,
     @Column
-    val authority:Authority
+    val authority: String = "CUSTOMER"
         )
