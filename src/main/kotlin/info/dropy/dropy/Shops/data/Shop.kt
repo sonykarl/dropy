@@ -9,15 +9,12 @@ data class Shop (
     val id:Long = 0,
     @Column(name = "name")
     val name:String,
-    @Column(name = "address")
+    @JoinColumn(name = "address")
     val address: Address,
-    @Column (name = "review")
-    @OneToMany
+    @JoinColumn (name = "reviews")
     val reviews: Reviews,
-    @Column (name = "rating")
-    @OneToMany
+    @JoinColumn (name = "rating")
     val rating: Rating,
-    @Column (name = "operatingTimes")
-    @OneToOne
+    @JoinColumn (name = "operatingHours")
     val operatingTimes: OperatingTimes
 )

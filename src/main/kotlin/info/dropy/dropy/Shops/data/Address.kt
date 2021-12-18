@@ -11,7 +11,6 @@ data class Address (
     val streetAddress: String,
     @Column (name = "landmarkBuilding")
     val landMarkBuilding: String,
-    @Column (name = "location")
-    @ManyToMany
+    @JoinColumn (name = "location")
     val location: Location,
         )

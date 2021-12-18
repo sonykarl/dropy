@@ -7,8 +7,7 @@ data class Product(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @Column
-    @ManyToMany
+    @JoinColumn(name = "category")
     val category: Category,
     @Column
     val description: String
