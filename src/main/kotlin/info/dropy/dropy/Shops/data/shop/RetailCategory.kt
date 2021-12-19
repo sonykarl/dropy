@@ -1,12 +1,13 @@
-package info.dropy.dropy.Shops.data
+package info.dropy.dropy.Shops.data.shop
 
 import javax.persistence.*
 
 @Entity
-data class Category (
+
+data class RetailCategory (
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @Column(name = "string")
-    val name: String
+    @Column(name = "category_name")
+    val name: String,
         )

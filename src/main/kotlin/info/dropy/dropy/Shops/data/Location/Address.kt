@@ -1,5 +1,6 @@
-package info.dropy.dropy.Shops.data
+package info.dropy.dropy.Shops.data.Location
 
+import info.dropy.dropy.Shops.data.shop.Shop
 import javax.persistence.*
 
 @Entity
@@ -11,6 +12,11 @@ data class Address (
     val streetAddress: String,
     @Column (name = "landmarkBuilding")
     val landMarkBuilding: String,
-    @JoinColumn (name = "location")
-    val location: Location,
+    @Column (name = "latitude")
+    val lat: Double,
+    @Column (name = "longitude")
+    val long: Double,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address")
+    val shop: Shop
         )

@@ -1,9 +1,9 @@
-package info.dropy.dropy.Shops.data
+package info.dropy.dropy.Shops.data.shop
 
 import javax.persistence.*
 
 @Entity
-data class OperatingTimes (
+data class WeekdaysOperatingTimes (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long,
