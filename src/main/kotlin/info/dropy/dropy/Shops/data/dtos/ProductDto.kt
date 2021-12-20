@@ -10,5 +10,4 @@ data class ProductDto (
     val shop_email: String,
     val description: String,
     val discount_percent: Float,
-    val photo: MultipartFile
         )

@@ -19,21 +19,21 @@ class AddProductController @Autowired constructor(private val addProductService:
                                                   private val shopDetailsService: ShopDetailsService){
 
     @PostMapping
-    fun addProducts(@RequestParam("file")  @ModelAttribute body: ProductDto): String{
+    fun addProducts(@RequestParam("file") file: MultipartFile, @RequestBody body: ProductDto): String{
         val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentDate = simpleDateFormat.format(Date())
         val product = Product(category = ProductCategory(
             name = body.category, created_at = currentDate
         ), shop = shopDetailsService.getShopDetails(body.shop_email),
             inventory = ProductInventory(quantity = body.inventory, created_at = currentDate),
-            photo = body.photo.originalFilename,
+            photo = file.originalFilename,
             description = body.description,
             discount = Discount(discount_percent = body.discount_percent, created_at = currentDate),
             created_at = currentDate
         )
 
         val status = runCatching {
-            addProductService.addProduct(file = body.photo, product = product)
+            addProductService.addProduct(file = file, product = product)
         }.isSuccess
 
         return if (status != false){
