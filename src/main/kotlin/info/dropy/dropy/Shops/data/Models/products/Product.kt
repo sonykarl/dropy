@@ -15,6 +15,8 @@ data class Product(
     val shop: Shop,
     @ManyToOne(fetch = FetchType.LAZY)
     val inventory: ProductInventory,
+    @Column(name = "photos")
+    val photo: String,
     @Column
     val description: String,
     @OneToOne(fetch = FetchType.LAZY)
