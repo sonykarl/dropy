@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("api/v1/shop")
+@RequestMapping("api/v1/shops")
 class ShopRegistrationController  @Autowired constructor(private val shopService: AddShopService) {
 
     @PostMapping("register")
     fun registerShop(@RequestBody body: Shopdto){
         val category = RetailCategory(name = body.category)
-        val shop = Shop(name = body.name, category = category)
+        val shop = Shop(name = body.name, category = category, email = body.email)
         shopService.registerShop(shop, category)
     }
 }
