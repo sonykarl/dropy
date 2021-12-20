@@ -1,6 +1,6 @@
-package info.dropy.dropy.Shops.data.Location
+package info.dropy.dropy.Shops.data.Models.Location
 
-import info.dropy.dropy.Shops.data.shop.Shop
+import info.dropy.dropy.Shops.data.Models.shop.Shop
 import javax.persistence.*
 
 @Entity

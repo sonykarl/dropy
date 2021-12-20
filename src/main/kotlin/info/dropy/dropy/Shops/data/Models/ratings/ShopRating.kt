@@ -1,7 +1,7 @@
-package info.dropy.dropy.Shops.data.ratings
+package info.dropy.dropy.Shops.data.Models.ratings
 
 import info.dropy.dropy.Customers.data.models.Customer
-import info.dropy.dropy.Shops.data.shop.Shop
+import info.dropy.dropy.Shops.data.Models.shop.Shop
 import java.sql.Date
 import javax.persistence.*
 

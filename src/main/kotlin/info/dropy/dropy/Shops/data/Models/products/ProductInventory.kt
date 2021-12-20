@@ -1,4 +1,4 @@
-package info.dropy.dropy.Shops.data.products
+package info.dropy.dropy.Shops.data.Models.products
 
 import java.util.*
 import javax.persistence.*

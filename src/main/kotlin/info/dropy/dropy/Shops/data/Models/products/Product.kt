@@ -1,6 +1,6 @@
-package info.dropy.dropy.Shops.data.products
+package info.dropy.dropy.Shops.data.Models.products
 
-import info.dropy.dropy.Shops.data.shop.RetailCategory
+import info.dropy.dropy.Shops.data.Models.shop.RetailCategory
 import java.util.*
 import javax.persistence.*
 
