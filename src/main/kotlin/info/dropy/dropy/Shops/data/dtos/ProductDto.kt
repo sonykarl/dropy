@@ -6,7 +6,7 @@ import java.util.*
 data class ProductDto (
     val category: String,
     val inventory: Int,
-    val shop_id: Long,
+    val shop_email: String,
     val description: String,
     val discount_percent: Float,
     val created_at: Date,

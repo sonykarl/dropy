@@ -7,19 +7,13 @@ import javax.persistence.*
 data class Discount (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long,
-    @Column(name = "name")
-    val name: String,
-    @Column(name = "description")
-    val description: String,
+    val id: Long = 0,
     @Column(name = "discount_percent")
-    val discount_percent: Double,
-    @Column(name = "active")
-    val active: Boolean,
+    val discount_percent: Float,
     @Column(name = "created_at")
-    val created_at: Date,
+    val created_at: String,
     @Column(name = "modified_at")
-    val modified_at: Date,
+    val modified_at: String? = null,
     @Column(name = "deleted_at")
-    val deleted_at: Date
+    val deleted_at: String? = null
         )

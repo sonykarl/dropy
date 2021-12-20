@@ -12,11 +12,11 @@ data class Product(
     @ManyToOne(fetch = FetchType.LAZY)
     val category: ProductCategory,
     @ManyToOne(fetch = FetchType.LAZY)
-    val shop: Shop,
+    val shop: Shop?,
     @ManyToOne(fetch = FetchType.LAZY)
     val inventory: ProductInventory,
     @Column(name = "photos")
-    val photo: String,
+    val photo: String?,
     @Column
     val description: String,
     @OneToOne(fetch = FetchType.LAZY)
