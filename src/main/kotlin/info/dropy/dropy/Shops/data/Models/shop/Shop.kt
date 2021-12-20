@@ -1,6 +1,5 @@
 package info.dropy.dropy.Shops.data.Models.shop
 
-import info.dropy.dropy.Shops.data.Models.Location.Address
 import javax.persistence.*
 
 @Entity
@@ -10,8 +9,6 @@ data class Shop (
     val id:Long = 0,
     @Column(name = "name")
     val name:String,
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "shop")
-    val address: List<Address>,
     @ManyToMany
     val category: List<RetailCategory>
     )
