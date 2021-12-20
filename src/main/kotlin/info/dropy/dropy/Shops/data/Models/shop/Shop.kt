@@ -9,6 +9,6 @@ data class Shop (
     val id:Long = 0,
     @Column(name = "name")
     val name:String,
-    @ManyToMany
-    val category: List<RetailCategory>
+    @ManyToOne(fetch = FetchType.LAZY)
+    val category: RetailCategory
     )

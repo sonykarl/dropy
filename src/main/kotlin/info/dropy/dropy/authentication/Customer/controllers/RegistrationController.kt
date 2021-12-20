@@ -33,4 +33,5 @@ class RegistrationController @Autowired constructor(private val authService: Cus
             return "details invalid"
         }
     }
+
 }
