@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface ShopRepo: JpaRepository<Shop,Long> {
     fun findByEmail(email: String?): Shop?
+    fun findByCategoryId(category: Long?): List<Shop>?
 }
