@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface RetailCategoryrepo: JpaRepository<RetailCategory,Long> {
+    fun findByName(category_name:String):RetailCategory?
 }

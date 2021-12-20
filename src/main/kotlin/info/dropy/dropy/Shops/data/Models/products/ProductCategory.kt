@@ -8,7 +8,7 @@ data class ProductCategory (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @Column(name = "categoryname")
+    @Column(name = "name")
     val name: String,
     @Column(name = "description")
     val description: String? = null,

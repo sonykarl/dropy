@@ -6,6 +6,7 @@ import info.dropy.dropy.Shops.data.Models.products.ProductCategory
 import info.dropy.dropy.Shops.data.Models.products.ProductInventory
 import info.dropy.dropy.Shops.data.dtos.ProductDto
 import info.dropy.dropy.Shops.services.AddProductService
+import info.dropy.dropy.Shops.services.CategoryDetailsService
 import info.dropy.dropy.Shops.services.ShopDetailsService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -15,13 +16,13 @@ import java.util.*
 
 @RestController
 @RequestMapping("api/v1/shops/addproducts")
-class AddProductController @Autowired constructor(private val addProductService: AddProductService,
-                                                  private val shopDetailsService: ShopDetailsService){
+class AddProductController @Autowired constructor(private val addProductService: AddProductService, private val shopDetailsService: ShopDetailsService){
 
     @PostMapping
     fun addProducts(@RequestParam("file") file: MultipartFile, @RequestBody body: ProductDto): String{
         val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentDate = simpleDateFormat.format(Date())
+
         val product = Product(category = ProductCategory(
             name = body.category, created_at = currentDate
         ), shop = shopDetailsService.getShopDetails(body.shop_email),
