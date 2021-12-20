@@ -1,6 +1,6 @@
 package info.dropy.dropy.Shops.data.Models.products
 
-import info.dropy.dropy.Shops.data.Models.shop.RetailCategory
+import info.dropy.dropy.Shops.data.Models.shop.Shop
 import java.util.*
 import javax.persistence.*
 
@@ -11,6 +11,8 @@ data class Product(
     val id: Long = 0,
     @ManyToOne(fetch = FetchType.LAZY)
     val category: ProductCategory,
+    @ManyToOne(fetch = FetchType.LAZY)
+    val shop: Shop,
     @ManyToOne(fetch = FetchType.LAZY)
     val inventory: ProductInventory,
     @Column
