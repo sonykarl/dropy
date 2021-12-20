@@ -20,13 +20,13 @@ data class Product(
     @Column
     val description: String,
     @OneToOne(fetch = FetchType.LAZY)
-    val discount: Discount,
+    val discount: Discount? = null,
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
-    val productRating: List<ProductRating>,
+    val productRating: List<ProductRating>? = null,
     @Column(name = "created_at")
-    val created_at: Date,
+    val created_at: String,
     @Column(name = "modified_at")
-    val modified_at: Date,
+    val modified_at: String? = null,
     @Column(name = "deleted_at")
-    val deleted_at: Date
+    val deleted_at: String? = null
 )

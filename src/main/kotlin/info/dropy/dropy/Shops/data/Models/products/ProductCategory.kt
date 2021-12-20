@@ -1,22 +1,21 @@
 package info.dropy.dropy.Shops.data.Models.products
 
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 data class ProductCategory (
     @Id
-    val id: Long,
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long = 0,
     @Column(name = "categoryname")
     val name: String,
     @Column(name = "description")
-    val description: String,
+    val description: String? = null,
     @Column(name = "created_at")
-    val created_at: Date,
+    val created_at: String,
     @Column(name = "modified_at")
-    val modified_at: Date,
+    val modified_at: String? = null,
     @Column(name = "deleted_at")
-    val deleted_at: Date
+    val deleted_at: String? = null
         )
