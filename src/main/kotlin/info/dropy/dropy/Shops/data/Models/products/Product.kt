@@ -9,17 +9,17 @@ data class Product(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val category: ProductCategory,
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = [CascadeType.ALL])
     val shop: Shop?,
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = [CascadeType.ALL])
     val inventory: ProductInventory,
     @Column(name = "photos")
     val photo: String?,
     @Column
     val description: String,
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val discount: Discount? = null,
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
     val productRating: List<ProductRating>? = null,

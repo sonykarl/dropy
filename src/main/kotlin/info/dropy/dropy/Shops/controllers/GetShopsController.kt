@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("api/v1/shops")
-class GetAllShops constructor(private val shopDetailsService: ShopDetailsService){
+class GetShopsController constructor(private val shopDetailsService: ShopDetailsService){
 
     @GetMapping("allshops")
     fun getallShops(): List<Shop>?{

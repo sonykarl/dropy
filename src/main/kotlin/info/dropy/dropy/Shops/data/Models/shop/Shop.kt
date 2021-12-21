@@ -9,7 +9,7 @@ data class Shop (
     val id:Long = 0,
     @Column(name = "name")
     val name:String,
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     val email: String,
     @ManyToOne(fetch = FetchType.LAZY)
     val category: RetailCategory?

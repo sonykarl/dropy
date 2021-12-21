@@ -19,4 +19,6 @@ class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
     fun getShopByCategory(categoryid: Long?): List<Shop>?{
         return shopRepo.findByCategoryId(categoryid)
     }
+
+
 }

@@ -11,9 +11,9 @@ import java.io.File
 @Service
 class AddProductService @Autowired constructor(private val productrepo: Productrepo){
 
-    fun addProduct(product: Product, file: MultipartFile){
-        val picturename = file.originalFilename
-        file.transferTo(File("C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\productimages",file.originalFilename))
+    fun addProduct(product: Product){
+//        val picturename = file.originalFilename
+//        file.transferTo(File("C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\productimages",file.originalFilename))
         productrepo.save(product)
     }
 

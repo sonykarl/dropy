@@ -8,6 +8,7 @@ data class ProductDto (
     val category: String,
     val inventory: Int,
     val shop_email: String,
+    val photo: String,
     val description: String,
     val discount_percent: Float,
         )
