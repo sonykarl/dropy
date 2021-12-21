@@ -1,6 +1,6 @@
 package info.dropy.dropy.Customers.data.orders
 
-import info.dropy.dropy.Shops.data.Models.products.Product
+import info.dropy.dropy.Shops.commons.data.Models.products.Product
 import javax.persistence.*
 
 @Entity

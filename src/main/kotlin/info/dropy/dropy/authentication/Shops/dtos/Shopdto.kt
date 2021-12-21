@@ -1,6 +1,6 @@
 package info.dropy.dropy.authentication.Shops.dtos
 
-import info.dropy.dropy.Shops.data.Models.shop.RetailCategory
+import info.dropy.dropy.Shops.commons.data.Models.shop.RetailCategory
 
 data class Shopdto (
     val name: String,
