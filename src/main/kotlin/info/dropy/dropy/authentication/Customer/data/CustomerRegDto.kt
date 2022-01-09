@@ -7,6 +7,5 @@ data class CustomerRegDto(
     val lastName: String,
     val phoneNumber: Long,
     val email: String,
-    val password: String,
-    val authority: String
+    val authority: String? = "Customer"
 )

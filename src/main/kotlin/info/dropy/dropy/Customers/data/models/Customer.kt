@@ -15,8 +15,6 @@ data class Customer (
     val phoneNumber: Long,
     @Column(name = "email",unique = true)
     val email: String,
-    @Column(name = "password")
-    val password: String,
     @Column(name = "IsAccountLocked")
     val locked: Boolean = false,
     @Column(name = "IsAccountExpired")
@@ -24,5 +22,5 @@ data class Customer (
     @Column(name="IsAccountEnabled")
     val isEnabled:Boolean = true,
     @Column
-    val authority: String = "CUSTOMER",
+    val authority: String? = "CUSTOMER",
         )
