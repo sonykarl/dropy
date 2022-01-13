@@ -8,9 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class AddShopService @Autowired constructor(private val shoprepo: ShopRepo, private val categoryrepo: RetailCategoryrepo){
+class AddShopService @Autowired constructor(
+    private val shoprepo: ShopRepo,
+    private val categoryrepo: RetailCategoryrepo
+    ){
 
-    fun registerShop(shop: Shop, category: RetailCategory){
+    fun registerShop(
+        shop: Shop,
+        category: RetailCategory
+    ){
         categoryrepo.save(category)
         shoprepo.save(shop)
     }

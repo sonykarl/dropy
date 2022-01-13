@@ -14,5 +14,5 @@ data class Shop (
     @ManyToOne(fetch = FetchType.LAZY)
     val category: RetailCategory?,
     @Column(name = "logo")
-    val shopLogo: String
+    val shopLogo: String?
     )
