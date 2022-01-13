@@ -17,10 +17,18 @@ class RegistrationController @Autowired constructor(private val authService: Cus
 
 
     @PostMapping("register")
-    fun registerCustomer(@RequestBody body: CustomerRegDto){
+    fun registerCustomer(@RequestBody body: CustomerRegDto): String{
         val customer = Customer(firstName = body.firstName, lastName = body.lastName, email = body.email,
             phoneNumber = body.phoneNumber, authority = body.authority)
-        authService.saveCustomer(customer)
+
+        if (body != null){
+            authService.saveCustomer(customer)
+            return "customer saved"
+        }else{
+            return "Enter fields properly"
+        }
+
+
     }
 
 }

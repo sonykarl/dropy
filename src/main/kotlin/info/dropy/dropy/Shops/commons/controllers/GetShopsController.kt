@@ -18,7 +18,7 @@ class GetShopsController constructor(private val shopDetailsService: ShopDetails
     }
 
     @GetMapping("shopbycategory")
-    fun getShopByCategory(@RequestBody body: GetShopByCategoryDto): List<Shop>?{
+    fun getShopByCategory(@RequestBody body:GetShopByCategoryDto): List<Shop>?{
         return shopDetailsService.getShopByCategory(body.category_id)
     }
 }

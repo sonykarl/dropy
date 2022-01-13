@@ -12,5 +12,7 @@ data class Shop (
     @Column(name = "email", unique = true)
     val email: String,
     @ManyToOne(fetch = FetchType.LAZY)
-    val category: RetailCategory?
+    val category: RetailCategory?,
+    @Column(name = "logo")
+    val shopLogo: String
     )
