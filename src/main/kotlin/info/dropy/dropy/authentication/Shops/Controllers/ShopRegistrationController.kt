@@ -9,6 +9,7 @@ import info.dropy.dropy.authentication.Shops.dtos.Shopdto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
+import java.io.FileOutputStream
 import java.nio.file.Files
 import java.nio.file.Paths
 
@@ -23,7 +24,7 @@ class ShopRegistrationController  @Autowired constructor(
     @PostMapping("register")
     fun registerShop(
         @RequestBody body: Shopdto,
-        @RequestParam("image") multipartFile: MultipartFile
+        @RequestParam("shopslogo") multipartFile: MultipartFile
     ): String{
 
         val bodycategory = categoryDetailsService.getRetailCategory(body.category)?: RetailCategory(
@@ -38,14 +39,14 @@ class ShopRegistrationController  @Autowired constructor(
             shopLogo = shoplogo
         )
         val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages"
-        val path = Paths.get(filePath + shoplogo)
         val bytes = multipartFile.bytes
+        val outputStream = FileOutputStream(filePath+shoplogo)
 
         if (emailExists != null && multipartFile.isEmpty){
             return "email already exists"
         }else{
+            outputStream.write(bytes)
             shopService.registerShop(shop, bodycategory)
-            Files.write(path,bytes)
             return "shop created"
         }
 
