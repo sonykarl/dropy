@@ -38,13 +38,12 @@ class ShopRegistrationController  @Autowired constructor(
             email = body.email,
             shopLogo = shoplogo
         )
-        val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages"
-        val bytes = multipartFile.bytes
-        val outputStream = FileOutputStream(filePath+shoplogo)
-
         if (emailExists != null && multipartFile.isEmpty){
             return "email already exists"
         }else{
+            val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\"
+            val bytes = multipartFile.bytes
+            val outputStream = FileOutputStream(filePath+shoplogo)
             outputStream.write(bytes)
             shopService.registerShop(shop, bodycategory)
             return "shop created"
