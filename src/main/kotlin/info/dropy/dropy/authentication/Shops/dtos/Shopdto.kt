@@ -6,5 +6,4 @@ data class Shopdto (
     val name: String,
     val category: String,
     val email: String,
-    val logo: String
         )

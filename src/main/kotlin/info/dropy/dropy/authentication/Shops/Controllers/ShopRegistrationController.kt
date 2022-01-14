@@ -36,11 +36,11 @@ class ShopRegistrationController  @Autowired constructor(
             shopLogo = shoplogo
         )
 
-        if (emailExists == null){
+        if (emailExists != null && multipartFile.isEmpty){
+            return "email already exists"
+        }else{
             shopService.registerShop(shop, bodycategory)
             return "shop created"
-        }else{
-            return "email already exists"
         }
 
 
