@@ -15,6 +15,9 @@ class WebSecurityConfig: WebMvcConfigurer{
     fun exposeDirectory(dirName: String, registry: ResourceHandlerRegistry){
         var uploadDir: Path = get(dirName)
         var uploadPath = uploadDir.toFile().absolutePath
-        registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/" + uploadPath + "/")
+        if (dirName.startsWith("../")) {
+            registry.addResourceHandler("/" + dirName.replace("../","") + "/**").addResourceLocations("file:/" + uploadPath + "/")
+        }
+
     }
 }
