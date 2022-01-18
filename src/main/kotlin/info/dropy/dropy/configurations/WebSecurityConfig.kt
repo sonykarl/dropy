@@ -12,16 +12,11 @@ import java.nio.file.Paths.get
 @EnableWebMvc
 @Configuration
 class WebSecurityConfig: WebMvcConfigurer{
+
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
-        exposeDirectory("shopsPhoto", registry)
+        registry
+            .addResourceHandler("/resources/**")
+            .addResourceLocations("/resources/")
     }
 
-    fun exposeDirectory(dirName: String, registry: ResourceHandlerRegistry){
-        var uploadDir: Path = get(dirName)
-        var uploadPath = uploadDir.toFile().absolutePath
-        if (dirName.startsWith("../")) {
-            registry.addResourceHandler("/" + dirName.replace("../","") + "/**").addResourceLocations("file:/" + uploadPath + "/")
-        }
-
-    }
 }
