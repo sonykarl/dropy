@@ -1,5 +1,6 @@
 package info.dropy.dropy.Shops.commons.controllers
 
+import com.mysql.cj.util.StringUtils.toString
 import info.dropy.dropy.Shops.commons.data.Models.shop.Shop
 import info.dropy.dropy.Shops.commons.data.dtos.GetShopByCategoryDto
 import info.dropy.dropy.Shops.commons.data.dtos.ShopDetailsDto
@@ -16,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.io.File
 import java.io.FileInputStream
+import java.io.InputStreamReader
+import java.lang.Character.toString
+import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.util.Arrays.toString
 import javax.servlet.http.HttpServletResponse
 import kotlin.reflect.full.memberProperties
 
@@ -36,8 +41,9 @@ class GetShopsController @Autowired constructor(
             val shopname = shop.name
             val pathName = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\${shopLogo}"
             val inputStream = FileInputStream(File(pathName)) //loading the file
-            val inputStreamResource = InputStreamResource(inputStream)
-            val shopDetail = ShopDetailsDto(imageSrc = inputStreamResource, shopName = shopname)
+            val picString = String(inputStream.readAllBytes(), StandardCharsets.UTF_8)
+//            val inputStreamResource = InputStreamResource(inputStream)
+            val shopDetail = ShopDetailsDto(imageSrc = picString, shopName = shopname)
             return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION,pathName)
                 .body(shopDetail)
