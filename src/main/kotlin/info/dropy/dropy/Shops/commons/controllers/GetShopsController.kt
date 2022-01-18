@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.InputStreamResource
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,6 +18,7 @@ import java.io.FileInputStream
 import java.nio.file.Files
 import java.nio.file.Paths
 import javax.servlet.http.HttpServletResponse
+import kotlin.reflect.full.memberProperties
 
 @RestController
 @RequestMapping("api/v1/shops")
@@ -24,11 +26,24 @@ class GetShopsController @Autowired constructor(
     private val shopDetailsService: ShopDetailsService
     ){
     @GetMapping("all")
-    fun getShops(response: HttpServletResponse): ResponseEntity<Any>{
-        val inputStream = FileInputStream(File("C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimageslabel.PNG")) //loading the file
-        val inputStreamResource = InputStreamResource(inputStream)
-        val header = HttpHeaders()
-        header.setContentLength(Files.size(Paths.get("C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimageslabel.PNG")))
-        return ResponseEntity(inputStreamResource, header, HttpStatus.OK)
+    fun getShop(response: HttpServletResponse): ResponseEntity<Any>{
+        val shops:List<Shop>? = shopDetailsService.getAllShops()
+
+        val shopDetails = shops!!.forEach {
+            shop: Shop ->
+            val shopLogo = shop.shopLogo
+            val pathName = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\${shopLogo}"
+            val inputStream = FileInputStream(File(pathName)) //loading the file
+            val inputStreamResource = InputStreamResource(inputStream)
+            return ResponseEntity.ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .header(HttpHeaders.CONTENT_DISPOSITION,pathName)
+                .body(inputStreamResource)
+        }
+
+        return ResponseEntity.ok()
+            .body(shopDetails)
+
     }
+
 }
