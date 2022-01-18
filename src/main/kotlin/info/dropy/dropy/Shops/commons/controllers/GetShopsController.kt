@@ -34,7 +34,7 @@ class GetShopsController @Autowired constructor(
             shop: Shop ->
             val shopLogo = shop.shopLogo
             val shopname = shop.name
-            val pathName = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\${shopLogo}"
+            val pathName = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\${shopLogo}"
             val inputStream = FileInputStream(File(pathName)) //loading the file
             val inputStreamResource = InputStreamResource(inputStream)
             val shopDetail = ShopDetailsDto(imageSrc = inputStreamResource, shopName = shopname)
