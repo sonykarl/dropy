@@ -16,7 +16,7 @@ class WebSecurityConfig: WebMvcConfigurer{
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
         registry
             .addResourceHandler("/resources/**")
-            .addResourceLocations("/resources/")
+            .addResourceLocations("classpath:/resources/")
     }
 
 }
