@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStreamReader
@@ -37,15 +38,14 @@ class GetShopsController @Autowired constructor(
         val shops:List<Shop>? = shopDetailsService.getAllShops()
         val shopDetails = shops!!.forEach {
             shop: Shop ->
+            val shopId = shop.id
+            val shopCategory = shop.category
+            val shopEmail = shop.email
             val shopLogo = shop.shopLogo
+            val pathName = "http://localhost:9090/static/shopslogoimages/${shopLogo}"
             val shopname = shop.name
-            val pathName = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\${shopLogo}"
-            val inputStream = FileInputStream(File(pathName)) //loading the file
-            val picString = String(inputStream.readAllBytes(), StandardCharsets.UTF_8)
-//            val inputStreamResource = InputStreamResource(inputStream)
-            val shopDetail = ShopDetailsDto(imageSrc = picString, shopName = shopname)
+            val shopDetail = Shop(id = shopId, name = shopname, email = shopEmail, shopLogo = pathName, category = shopCategory)
             return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,pathName)
                 .body(shopDetail)
         }
 
