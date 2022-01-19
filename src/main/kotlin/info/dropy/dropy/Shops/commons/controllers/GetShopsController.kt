@@ -35,23 +35,9 @@ class GetShopsController @Autowired constructor(
 
     @GetMapping("all")
     fun getShop(response: HttpServletResponse): ResponseEntity<Any>{
-        val shops:List<Shop>? = shopDetailsService.getAllShops()
-        val shopDetails = shops!!.forEach {
-            shop: Shop ->
-            val shopId = shop.id
-            val shopCategory = shop.category
-            val shopEmail = shop.email
-            val shopLogo = shop.shopLogo
-            val pathName = "http://localhost:9090/static/shopslogoimages/${shopLogo}"
-            val shopname = shop.name
-            val shopDetail = Shop(id = shopId, name = shopname, email = shopEmail, shopLogo = pathName, category = shopCategory)
-            return ResponseEntity.ok()
-                .body(shopDetail)
-        }
-
+        val shops = shopDetailsService.getAllShops()
         return ResponseEntity.ok()
-            .body(shopDetails)
-
+            .body(shops)
     }
 
 }
