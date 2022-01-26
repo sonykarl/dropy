@@ -15,16 +15,6 @@ class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
 
     fun getAllShops(): List<Shop>?{
         val shops =  shopRepo.findAll()
-//        for (shop in 0 until shops!!.size){
-//            val shopDetails = shops!!.forEach {
-//                    shop: Shop ->
-//                val pathName = "http://localhost:9090/static/shopslogoimages/${shop.shopLogo}"
-//                val shopDetail = Shop(id = shop.id,name = shop.name,email = shop.email,category = shop.category,shopLogo = pathName)
-//                shopDetail
-//            }
-//            shopDetails
-//        }
-
         return shops
     }
 
