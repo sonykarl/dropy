@@ -21,12 +21,8 @@ class RegistrationController @Autowired constructor(private val authService: Cus
         val customer = Customer(firstName = body.firstName, lastName = body.lastName, email = body.email,
             phoneNumber = body.phoneNumber, authority = body.authority)
 
-        if (body != null){
-            authService.saveCustomer(customer)
-            return "customer saved"
-        }else{
-            return "Enter fields properly"
-        }
+        authService.saveCustomer(customer)
+        return "customer saved"
 
 
     }
