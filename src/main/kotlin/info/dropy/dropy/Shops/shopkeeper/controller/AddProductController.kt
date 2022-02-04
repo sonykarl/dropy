@@ -20,7 +20,7 @@ class AddProductController @Autowired constructor(private val addProductService:
     fun addProducts( @RequestBody body: ProductDto){
         val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentDate = simpleDateFormat.format(Date())
-        val getshop = shopDetailsService.getShopDetails(body.shop_email)
+        val getshop = shopDetailsService.getShopDetailsByEmail(body.shop_email)
         val product = Product(
             category = ProductCategory(
                 name = body.category, created_at = currentDate

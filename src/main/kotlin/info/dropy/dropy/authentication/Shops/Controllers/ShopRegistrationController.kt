@@ -31,7 +31,7 @@ class ShopRegistrationController  @Autowired constructor(
             name = body.category
         )
         val shoplogo = multipartFile.originalFilename
-        val emailExists = shopDetailsService.getShopDetails(body.email)
+        val emailExists = shopDetailsService.getShopDetailsByEmail(body.email)
         val shop = Shop(
             name = body.name,
             category = bodycategory,

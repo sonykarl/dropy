@@ -13,6 +13,10 @@ class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
         return shop
     }
 
+    fun getShopDetailsByEmail(email: String?): Shop?{
+        val shop = shopRepo.findByEmail(email)
+        return shop
+    }
     fun getAllShops(): List<Shop>?{
         val shops =  shopRepo.findAll()
         return shops

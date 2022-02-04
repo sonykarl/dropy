@@ -42,7 +42,7 @@ class GetShopsController @Autowired constructor(
     }
 
     @GetMapping("{id}")
-    fun getIndividualShop(@PathVariable id:String): ResponseEntity<Any>{
+    fun getIndividualShop(@PathVariable id: String): ResponseEntity<Any>{
         val shop = shopDetailsService.getShopDetails(id = id.toLong())
         return ResponseEntity.ok()
             .body(shop)
