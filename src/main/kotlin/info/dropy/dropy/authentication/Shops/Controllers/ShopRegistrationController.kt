@@ -24,25 +24,28 @@ class ShopRegistrationController  @Autowired constructor(
     @PostMapping("register")
     fun registerShop(
         @RequestBody body: Shopdto,
-        @RequestParam("shopslogo") multipartFile: MultipartFile
+        @RequestParam("shopslogo") shopsLogo: MultipartFile,
+        @RequestParam("shopsHeader") shopsHeader: MultipartFile
     ): String{
 
         val bodycategory = categoryDetailsService.getRetailCategory(body.category)?: RetailCategory(
             name = body.category
         )
-        val shoplogo = multipartFile.originalFilename
+        val shoplogo = shopsLogo.originalFilename
+        val shopsHeader = shopsHeader.originalFilename
         val emailExists = shopDetailsService.getShopDetailsByEmail(body.email)
         val shop = Shop(
             name = body.name,
             category = bodycategory,
             email = body.email,
-            shopLogo = shoplogo
+            shopLogo = shoplogo,
+            shopHeader = shopsHeader
         )
-        if (emailExists != null && multipartFile.isEmpty){
+        if (emailExists != null && shopsLogo.isEmpty){
             return "email already exists"
         }else{
             val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\"
-            val bytes = multipartFile.bytes
+            val bytes = shopsLogo.bytes
             val outputStream = FileOutputStream(filePath+shoplogo)
             outputStream.write(bytes)
             shopService.registerShop(shop, bodycategory)
