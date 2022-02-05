@@ -40,6 +40,10 @@ class GetShopsController @Autowired constructor(
         return ResponseEntity.ok()
             .body(shops)
     }
+//    @GetMapping("popularShops")
+//    fun getPopularShops(response: HttpServletResponse): ResponseEntity<Any>{
+//        val shops = shopDetailsService
+//    }
 
     @GetMapping("{id}")
     fun getIndividualShop(@PathVariable id: String): ResponseEntity<Any>{

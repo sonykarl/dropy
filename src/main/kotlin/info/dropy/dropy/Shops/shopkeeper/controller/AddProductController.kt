@@ -35,7 +35,9 @@ class AddProductController @Autowired constructor(private val addProductService:
                 discount_percent = body.discount_percent,
                 created_at = currentDate
             ),
-            created_at = currentDate
+            created_at = currentDate,
+            name = body.name,
+            price = body.price
         )
         addProductService.addProduct( product = product)
     }

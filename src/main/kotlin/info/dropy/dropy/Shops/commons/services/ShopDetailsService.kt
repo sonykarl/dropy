@@ -21,6 +21,9 @@ class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
         val shops =  shopRepo.findAll()
         return shops
     }
+//    fun getPopularShops(): List<Shop>?{
+//        val popularShops = shopRepo.
+//    }
 
     fun getShopByCategory(categoryid: Long?): List<Shop>?{
         return shopRepo.findByCategoryId(categoryid)

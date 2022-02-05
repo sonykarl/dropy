@@ -18,11 +18,18 @@ class GetProductsController constructor(private val productsService: ShopProduct
             .body(allProducts)
     }
 
-    @GetMapping("{id}")
+    @GetMapping("shopAllProducts/{id}")
     fun getShopProducts(@PathVariable id: String): ResponseEntity<Any>{
         val shopProducts = productsService.showShopProducts(shopId = id.toLong())
         return ResponseEntity.ok()
             .body(shopProducts)
+    }
+
+    @GetMapping("shopRelatedProducts/{id}")
+    fun getShopRelatedProducts(@PathVariable id: String): ResponseEntity<Any>{
+        val shopRelatedProducts = productsService.showRelatedShopProducts(categoryId = id.toLong())
+        return ResponseEntity.ok()
+            .body(shopRelatedProducts)
     }
 
 

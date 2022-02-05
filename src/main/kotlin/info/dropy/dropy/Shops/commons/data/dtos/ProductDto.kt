@@ -11,4 +11,6 @@ data class ProductDto (
     val photo: String,
     val description: String,
     val discount_percent: Float,
+    val name: String,
+    val price: Int,
         )
