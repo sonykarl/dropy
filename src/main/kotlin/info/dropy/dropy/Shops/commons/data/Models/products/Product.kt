@@ -10,9 +10,9 @@ data class Product(
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
     @Column(name = "name")
-    val name: String,
+    val name: String?=null,
     @Column (name = "price")
-    val price: Int,
+    val price: Int? = null,
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val category: ProductCategory,
     @ManyToOne(fetch = FetchType.LAZY,cascade = [CascadeType.ALL])
