@@ -12,4 +12,10 @@ class OrderItemService @Autowired constructor(
     fun addOrderItem(orderItem: OrderItem){
         orderItemRepo.save(orderItem)
     }
+
+    fun getOrderItems(customerId:Long):List<OrderItem>?{
+        return orderItemRepo.findByCustomerId(id = customerId)
+    }
+
+
 }
