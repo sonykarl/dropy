@@ -15,13 +15,13 @@ class CustomerOrdersController @Autowired constructor(
 
     @PostMapping("addOrderItem")
     fun addOrderItem(@RequestBody body: OrderItemDto){
-        val orderItem = OrderItem(id = body.id, product = body.product, quantity = body.quantity, customer = body.customer)
+        val orderItem = OrderItem(id = body.id, product = body.product, quantity = body.quantity, customer = body.customer,shop = body.shop)
         orderItemService.addOrderItem(orderItem = orderItem)
     }
 
     @GetMapping("getOrderItems/{customerId}")
     fun getOrderItems(@PathVariable customerId:String): ResponseEntity<Any>{
-        val customerOrderItems = orderItemService.getOrderItems(customerId = customerId!!.toLong())
+        val customerOrderItems = orderItemService.getOrderItems(customerId = customerId.toLong())
         return ResponseEntity.ok()
             .body(customerOrderItems)
     }

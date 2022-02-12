@@ -4,12 +4,12 @@ import info.dropy.dropy.Customers.data.models.Customer
 import javax.persistence.*
 
 @Entity
-data class Favourites (
+data class CustomerFavourites (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @Column
-    val shop: Shop?,
-    @Column
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val customer: Customer?,
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    val shops: List<Shop>?
         )

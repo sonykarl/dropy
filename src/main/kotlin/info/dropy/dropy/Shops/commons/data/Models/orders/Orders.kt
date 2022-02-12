@@ -15,5 +15,7 @@ data class Orders (
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val shop: Shop,
     @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val OrderItems: List<OrderItem>?
+    val OrderItems: List<OrderItem>?,
+    @Column(name = "status")
+    val status: Boolean = false
         )

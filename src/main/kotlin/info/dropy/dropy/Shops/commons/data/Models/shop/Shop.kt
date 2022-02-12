@@ -16,5 +16,9 @@ data class Shop (
     @Column(name = "logo")
     val shopLogo: String?,
     @Column(name = "header")
-    val shopHeader: String?
-    )
+    val shopHeader: String?,
+    @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY)
+    val shopbranch: List<ShopBranch>?,
+    @OneToOne(mappedBy = "shop", fetch = FetchType.LAZY)
+    val shopLocation: ShopLocation
+)

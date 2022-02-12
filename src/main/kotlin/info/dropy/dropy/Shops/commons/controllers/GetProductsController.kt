@@ -1,8 +1,7 @@
 package info.dropy.dropy.Shops.commons.controllers
 
-import info.dropy.dropy.Shops.commons.data.Models.products.Product
-import info.dropy.dropy.Shops.commons.data.dtos.GetShopProductsDto
-import info.dropy.dropy.Shops.commons.services.ShopDetailsService
+
+import info.dropy.dropy.Shops.commons.data.Models.products.ProductCategory
 import info.dropy.dropy.Shops.commons.services.ShopProductsService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -30,6 +29,18 @@ class GetProductsController constructor(private val productsService: ShopProduct
         val shopRelatedProducts = productsService.showRelatedShopProducts(categoryId = id.toLong())
         return ResponseEntity.ok()
             .body(shopRelatedProducts)
+    }
+
+    @GetMapping("shopProductCategories")
+    fun getShopProductCategories(): ResponseEntity<Any>{
+        var productCategoriesIds = productsService.shopProductCategories()!!.distinct()
+//        var productCategories = listOf<ProductCategory>()
+
+//        for(productCategoryId in productCategoriesIds){
+//            val categories = productsService.
+//        }
+        return ResponseEntity.ok()
+            .body(productCategoriesIds)
     }
 
 
