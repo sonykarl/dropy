@@ -13,5 +13,8 @@ data class ShopBranch(
     @JoinColumn(name = "shop_id")
     val shop: Shop,
     @OneToOne(mappedBy = "shopbranch", fetch = FetchType.LAZY)
-    val shopBranchLocation: ShopBranchLocation
+    val shopBranchLocation: ShopBranchLocation,
+    @Column(name = "phoneNumberOne")
+    val phoneNumber: Long,
+
 )

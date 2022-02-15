@@ -20,5 +20,9 @@ data class Shop (
     @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY)
     val shopbranch: List<ShopBranch>?,
     @OneToOne(mappedBy = "shop", fetch = FetchType.LAZY)
-    val shopLocation: ShopLocation
+    val shopLocation: ShopLocation,
+    @Column(name = "phoneNumberOne")
+    val phoneNumber: Long,
+    @Column(name = "phoneNumberTwo")
+    val phoneNumberTwo: Long
 )
