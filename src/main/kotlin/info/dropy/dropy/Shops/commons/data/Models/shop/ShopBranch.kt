@@ -16,5 +16,4 @@ data class ShopBranch(
     val shopBranchLocation: ShopBranchLocation,
     @Column(name = "phoneNumberOne")
     val phoneNumber: Long,
-
 )
