@@ -9,5 +9,6 @@ data class Shopdto (
     val category: String,
     val email: String,
     val branch: List<ShopBranch>? = null,
-    val shopLocation: ShopLocation
+    val shopLocation: ShopLocation,
+    val phoneNumber: Long
         )

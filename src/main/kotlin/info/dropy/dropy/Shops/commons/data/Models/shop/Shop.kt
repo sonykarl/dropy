@@ -22,7 +22,7 @@ data class Shop (
     @OneToOne(mappedBy = "shop", fetch = FetchType.LAZY)
     val shopLocation: ShopLocation,
     @Column(name = "phoneNumberOne")
-    val phoneNumber: Long,
+    val phoneNumber: Long?,
     @Column(name = "phoneNumberTwo")
-    val phoneNumberTwo: Long
+    val phoneNumberTwo: Long? = null
 )

@@ -41,7 +41,8 @@ class ShopRegistrationController  @Autowired constructor(
             shopLogo = shoplogo,
             shopHeader = shopsHeader,
             shopbranch = body.branch,
-            shopLocation = body.shopLocation
+            shopLocation = body.shopLocation,
+            phoneNumber = body.phoneNumber
         )
         if (emailExists != null && shopsLogo.isEmpty){
             return "email already exists"
