@@ -23,4 +23,6 @@ data class Customer (
     val isEnabled:Boolean? = true,
     @Column
     val authority: String? = "CUSTOMER",
+    @Column(name = "FirebaseId")
+    val firebaseId: String? = null
         )

@@ -9,11 +9,15 @@ import org.springframework.stereotype.Service
 class CustomerFavouritesService @Autowired constructor(
     private val customerFavouritesrepo: CustomerFavouritesRepository
 ){
-    fun findCustomerFavourites(id: Long): List<CustomerFavourites>{
+    fun findCustomerFavourites(id: Long): List<CustomerFavourites>?{
         return customerFavouritesrepo.findByCustomerId(customerId = id)
     }
 
-    fun findAllShopsFavourites(id: Long): List<CustomerFavourites>{
-        return customerFavouritesrepo.findByShopId(shopId = id)
+    fun findAllShopsFavourites(id: Long): List<CustomerFavourites>?{
+        return customerFavouritesrepo.findByShopsId(shopId = id)
+    }
+
+    fun findAllFavourites(): List<CustomerFavourites>?{
+        return customerFavouritesrepo.findAll()
     }
 }

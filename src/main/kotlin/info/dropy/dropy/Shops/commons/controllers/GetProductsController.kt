@@ -3,12 +3,13 @@ package info.dropy.dropy.Shops.commons.controllers
 
 import info.dropy.dropy.Shops.commons.data.Models.products.ProductCategory
 import info.dropy.dropy.Shops.commons.services.ShopProductsService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("api/v1/shops/products")
-class GetProductsController constructor(private val productsService: ShopProductsService){
+class GetProductsController @Autowired constructor(private val productsService: ShopProductsService){
 
     @GetMapping("allproducts")
     fun getProducts(): ResponseEntity<Any>{

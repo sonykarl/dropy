@@ -5,7 +5,7 @@ import info.dropy.dropy.Shops.commons.data.Models.products.Product
 import info.dropy.dropy.Shops.commons.data.Models.shop.Shop
 
 data class OrderItemDto (
-    val id: Long,
+    val id: Long? = null,
     val product: Product,
     val quantity: Int,
     val customer: Customer,

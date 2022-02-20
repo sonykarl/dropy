@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CustomerFavouritesRepository: JpaRepository<CustomerFavourites, Long> {
-
-    fun findByCustomerId(customerId: Long): List<CustomerFavourites>
-    fun findByShopId(shopId: Long): List<CustomerFavourites>
-
+    fun findByCustomerId(customerId: Long): List<CustomerFavourites>?
+    fun findByShopsId(shopId: Long): List<CustomerFavourites>?
 }
