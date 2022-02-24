@@ -21,7 +21,6 @@ class ShopRegistrationController  @Autowired constructor(
     private val shopService: AddShopService,
     private val shopDetailsService: ShopDetailsService,
     private val categoryDetailsService: CategoryDetailsService,
-    private val shopLocationService: ShopLocationService
 ) {
 
     @PostMapping("register")
