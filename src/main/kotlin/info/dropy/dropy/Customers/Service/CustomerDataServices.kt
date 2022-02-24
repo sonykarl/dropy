@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service
 class CustomerDataServices @Autowired constructor(
     private val customerRepository: CustomerRepository
 ){
+
+    fun updateFirebaseId(customer: Customer){
+        customerRepository.save(customer)
+    }
+
     fun findByCustomerId(id: Long): Customer?{
         return customerRepository.findById(id = id)
     }
@@ -19,5 +24,9 @@ class CustomerDataServices @Autowired constructor(
 
     fun findByFirebaseId(firebaseId: String):Customer?{
         return customerRepository.findByFirebaseId(id = firebaseId)
+    }
+    //only for testing
+    fun getAllCustomers(): List<Customer?>{
+        return customerRepository.findAll()
     }
 }
