@@ -11,7 +11,7 @@ data class ProductInventory (
     @Column(name = "quantity")
     val quantity: Int,
     @Column(name = "created_at")
-    val created_at: String,
+    val created_at: String?  = null,
     @Column(name = "modified_at")
     val modified_at: String? = null,
     @Column(name = "deleted_at")

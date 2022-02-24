@@ -17,10 +17,12 @@ import java.util.*
 class AddProductController @Autowired constructor(private val addProductService: AddProductService, private val shopDetailsService: ShopDetailsService){
 
     @PostMapping
-    fun addProducts( @RequestBody body: ProductDto){
+    fun addProducts(
+        @RequestBody body: ProductDto
+    ){
         val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentDate = simpleDateFormat.format(Date())
-        val getshop = shopDetailsService.getShopDetailsByEmail(body.shop_email)
+        val getshop = shopDetailsService.getShopDetailsByEmail(body.firebase_id)
         val product = Product(
             category = ProductCategory(
                 name = body.category, created_at = currentDate
@@ -33,7 +35,8 @@ class AddProductController @Autowired constructor(private val addProductService:
             description = body.description,
             discount = Discount(
                 discount_percent = body.discount_percent,
-                created_at = currentDate
+                created_at = currentDate,
+                discountcode = body.discount_code,
             ),
             created_at = currentDate,
             name = body.name,

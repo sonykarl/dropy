@@ -14,13 +14,15 @@ data class Shop (
     @ManyToOne(fetch = FetchType.LAZY)
     val category: RetailCategory?,
     @Column(name = "logo")
-    val shopLogo: String?,
+    val shopLogo: String? = null,
     @Column(name = "header")
-    val shopHeader: String?,
+    val shopHeader: String? = null,
     @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY)
     val shopbranch: List<ShopBranch>?,
-    @OneToOne(mappedBy = "shop", fetch = FetchType.LAZY)
-    val shopLocation: ShopLocation,
+    @Column(name ="latitude")
+    val latitude: Double? = null,
+    @Column(name = "longitude")
+    val longitude: Double? = null,
     @Column(name = "phoneNumberOne")
     val phoneNumber: Long?,
     @Column(name = "phoneNumberTwo")

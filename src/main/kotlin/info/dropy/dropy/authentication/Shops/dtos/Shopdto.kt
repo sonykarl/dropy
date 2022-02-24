@@ -1,7 +1,7 @@
 package info.dropy.dropy.authentication.Shops.dtos
 
 import info.dropy.dropy.Shops.commons.data.Models.shop.ShopBranch
-import info.dropy.dropy.Shops.commons.data.Models.shop.ShopLocation
+
 
 
 data class Shopdto (
@@ -9,6 +9,7 @@ data class Shopdto (
     val category: String,
     val email: String,
     val branch: List<ShopBranch>? = null,
-    val shopLocation: ShopLocation,
+    val shopLatitude: Double? = null,
+    val shopLongitude: Double? = null,
     val phoneNumber: Long
         )

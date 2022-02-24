@@ -7,12 +7,9 @@ import javax.persistence.*
 data class ShopLocation(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long,
+    val id: Long? = null,
     @Column(name = "longitude")
     val longitude: Double,
     @Column(name = "latitude")
     val latitude: Double,
-    @OneToOne
-    @JoinColumn(name = "shop_id")
-    val shop: Shop
 )

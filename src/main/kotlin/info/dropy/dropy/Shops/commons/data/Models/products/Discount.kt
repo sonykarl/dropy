@@ -12,6 +12,8 @@ data class Discount (
     val discount_percent: Float,
     @Column(name = "created_at")
     val created_at: String,
+    @Column(name = "discount_code")
+    val discountcode:String? = null,
     @Column(name = "modified_at")
     val modified_at: String? = null,
     @Column(name = "deleted_at")
