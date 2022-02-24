@@ -11,4 +11,5 @@ interface CustomerRepository: JpaRepository<Customer, Long> {
     fun findByEmail(email: String?): Customer?
     fun findById(id: Long?): Customer?
     fun findByFirebaseId(id:String): Customer?
+    fun findByPhoneNumber(phoneNumber:String):Customer?
 }
