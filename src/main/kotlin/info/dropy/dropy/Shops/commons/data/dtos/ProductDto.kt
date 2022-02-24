@@ -1,8 +1,6 @@
 package info.dropy.dropy.Shops.commons.data.dtos
 
-import info.dropy.dropy.Shops.commons.data.Models.products.ProductCategory
-import org.springframework.web.multipart.MultipartFile
-import java.util.*
+
 
 data class ProductDto (
     val category: String = "tech",
