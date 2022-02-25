@@ -7,7 +7,6 @@ import javax.persistence.*
 @Entity
 data class CustomerOrder(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long,
     @ManyToOne(fetch = FetchType.LAZY)
     val customer: Customer,
