@@ -26,7 +26,7 @@ class CustomerDataServices @Autowired constructor(
         return customerRepository.findByFirebaseId(id = firebaseId)
     }
 
-    fun findByPhoneNumber(phoneNumber:String):Customer?{
+    fun findByPhoneNumber(phoneNumber:Long):Customer?{
         return customerRepository.findByPhoneNumber(phoneNumber = phoneNumber)
     }
     //only for testing

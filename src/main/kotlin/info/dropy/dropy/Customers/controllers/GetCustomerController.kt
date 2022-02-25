@@ -35,8 +35,8 @@ class GetCustomerController @Autowired constructor(
     }
 
     @GetMapping("getCustomerByPhoneNumber/{phoneNumber}")
-    fun getPhoneNumber(@PathVariable phoneNumber:String):ResponseEntity<Any>{
-        val customer = customerdataservices.findByPhoneNumber(phoneNumber = phoneNumber)
+    fun getPhoneNumber(@PathVariable phoneNumber:String):ResponseEntity<Any?>{
+        val customer = customerdataservices.findByPhoneNumber(phoneNumber = phoneNumber.toLong())
         return ResponseEntity.ok()
             .body(customer)
     }

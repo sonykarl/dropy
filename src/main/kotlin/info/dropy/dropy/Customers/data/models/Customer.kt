@@ -12,7 +12,7 @@ data class Customer (
     @Column(name="lastname")
     val lastName: String?,
     @Column(name="phone_number",unique = true)
-    val phoneNumber: String?,
+    val phoneNumber: Long?,
     @Column(name = "email",unique = true)
     val email: String?,
     @Column(name = "IsAccountLocked")

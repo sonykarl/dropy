@@ -21,7 +21,7 @@ class RegistrationController @Autowired constructor(
     @PostMapping("register")
     fun registerCustomer(@RequestBody body: CustomerRegDto): String{
         val customer = Customer(firstName = body.firstName, lastName = body.lastName, email = body.email,
-            phoneNumber = body.phoneNumber, authority = body.authority)
+            phoneNumber = body.phoneNumber!!.toLong(), authority = body.authority)
 
         authService.saveCustomer(customer)
         return "customer saved"
