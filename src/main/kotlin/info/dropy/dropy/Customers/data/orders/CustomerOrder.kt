@@ -2,7 +2,6 @@ package info.dropy.dropy.Customers.data.orders
 
 import info.dropy.dropy.Customers.data.models.Customer
 import java.util.*
-import javax.annotation.processing.Generated
 import javax.persistence.*
 
 @Entity
