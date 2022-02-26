@@ -62,7 +62,8 @@ class ShopRegistrationController  @Autowired constructor(
     ):ResponseEntity<Any>{
         val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\"
         val bytes = shoplogo.bytes
-        val outputStream = FileOutputStream(filePath+shoplogo)
+        val shoplogo = shoplogo.originalFilename
+        val outputStream = FileOutputStream("$filePath$shoplogo")
         outputStream.write(bytes)
 //        shopService.registerShop(shop, bodycategory)
         return ResponseEntity.ok()
