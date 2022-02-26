@@ -11,5 +11,6 @@ data class Shopdto (
     val branch: List<ShopBranch>? = null,
     val shopLatitude: Double? = null,
     val shopLongitude: Double? = null,
-    val phoneNumber: Long
+    val phoneNumber: Long,
+    val firebaseId: String?
         )

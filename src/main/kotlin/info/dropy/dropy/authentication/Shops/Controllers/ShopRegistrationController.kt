@@ -9,6 +9,7 @@ import info.dropy.dropy.Shops.commons.services.ShopDetailsService
 import info.dropy.dropy.Shops.commons.services.ShopLocationService
 import info.dropy.dropy.authentication.Shops.dtos.Shopdto
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 import java.io.FileOutputStream
@@ -41,20 +42,31 @@ class ShopRegistrationController  @Autowired constructor(
             shopbranch = body.branch,
             phoneNumber = body.phoneNumber,
             latitude = body.shopLatitude,
-            longitude = body.shopLongitude
+            longitude = body.shopLongitude,
+            firebaseId = body.firebaseId
         )
         shopService.registerShop(shop,bodycategory)
 //        if (emailExists != null && shopsLogo.isEmpty){
 //            return "email already exists"
 //        }else{
-//            val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\"
-//            val bytes = shopsLogo.bytes
-//            val outputStream = FileOutputStream(filePath+shoplogo)
-//            outputStream.write(bytes)
-//            shopService.registerShop(shop, bodycategory)
-//            return "shop created"
+
 //        }
 
 
     }
+
+    @PostMapping("uploadshopPhotos")
+    fun uploadPhotos(
+        @RequestParam shoplogo: MultipartFile,
+        @RequestParam shopFeaturePhoto: MultipartFile
+    ):ResponseEntity<Any>{
+        val filePath = "C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\"
+        val bytes = shoplogo.bytes
+        val outputStream = FileOutputStream(filePath+shoplogo)
+        outputStream.write(bytes)
+//        shopService.registerShop(shop, bodycategory)
+        return ResponseEntity.ok()
+            .body("shop created")
+    }
 }
+

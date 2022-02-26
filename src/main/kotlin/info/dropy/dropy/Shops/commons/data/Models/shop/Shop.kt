@@ -26,5 +26,5 @@ data class Shop (
     @Column(name = "phoneNumberOne")
     val phoneNumber: Long?,
     @Column(name = "phoneNumberTwo")
-    val phoneNumberTwo: Long? = null
+    val firebaseId: String?
 )
