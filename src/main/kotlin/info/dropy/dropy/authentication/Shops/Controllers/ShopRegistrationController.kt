@@ -3,6 +3,7 @@ package info.dropy.dropy.authentication.Shops.Controllers
 import info.dropy.dropy.Shops.commons.data.Models.shop.RetailCategory
 import info.dropy.dropy.Shops.commons.data.Models.shop.Shop
 import info.dropy.dropy.Shops.commons.data.Models.shop.ShopLocation
+import info.dropy.dropy.Shops.commons.data.repositories.shops.ShopRepo
 import info.dropy.dropy.Shops.shopkeeper.services.AddShopService
 import info.dropy.dropy.Shops.commons.services.CategoryDetailsService
 import info.dropy.dropy.Shops.commons.services.ShopDetailsService
@@ -56,15 +57,11 @@ class ShopRegistrationController  @Autowired constructor(
 
     }
 
-    @PostMapping("uploadshopPhotos")
-    fun uploadPhotos(
-        @RequestParam ("shoplogo")shoplogo: MultipartFile,
-        @RequestParam ("shopfeaturephoto")shopFeaturePhoto: MultipartFile
-    ) :ResponseEntity<Any> {
-
-        shoplogo.transferTo(File("C:\\Users\\wuodmogo\\IdeaProjects\\dropy\\dropy\\src\\main\\resources\\static\\shopslogoimages\\"+shoplogo.originalFilename))
-        return ResponseEntity.ok()
-            .body("shop created")
+    @PutMapping("updateShopImages")
+    fun UploadShopImages(
+        @RequestBody shop:Shop
+    ){
+        shop.category?.let { shopService.registerShop(shop = shop, category = it) }
     }
 }
 
