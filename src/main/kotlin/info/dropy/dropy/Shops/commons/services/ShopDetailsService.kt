@@ -13,8 +13,8 @@ class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
         return shop
     }
 
-    fun getShopDetailsByEmail(email: String?): Shop?{
-        val shop = shopRepo.findByFirebaseId(email = email)
+    fun getShopDetailsByEmail(email: String): Shop{
+        val shop = shopRepo.findByFirebaseId(firebase_id = email)
         return shop
     }
     fun getAllShops(): List<Shop>?{

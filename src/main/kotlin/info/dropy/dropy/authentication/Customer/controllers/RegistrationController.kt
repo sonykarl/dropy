@@ -2,12 +2,10 @@ package info.dropy.dropy.authentication.Customer.controllers
 
 import info.dropy.dropy.Customers.Service.CustomerDataServices
 import info.dropy.dropy.Customers.data.models.Customer
-import info.dropy.dropy.authentication.Customer.data.CustomerLogDto
 import info.dropy.dropy.authentication.Customer.data.CustomerRegDto
 import info.dropy.dropy.authentication.Customer.logic.CustomerAuthService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.*
 
 @RestController
