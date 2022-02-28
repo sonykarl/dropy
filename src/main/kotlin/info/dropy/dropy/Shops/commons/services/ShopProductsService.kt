@@ -15,7 +15,7 @@ class ShopProductsService @Autowired constructor(private val productrepo: Produc
         return productrepo.findAll()
     }
 
-    fun showShopProducts(shopId: Long):List<Product>?{
+    fun showShopProducts(shopId: Long):List<Product?>?{
         return  productrepo.findByShopId(shopId)
     }
 
