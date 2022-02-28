@@ -36,7 +36,7 @@ class ShopRegistrationController  @Autowired constructor(
             name = body.category
         )
 
-        val emailExists = shopDetailsService.getShopDetailsByEmail(body.email)
+//        val emailExists = shopDetailsService.getShopDetailsByEmail(body.email)
         val shop = Shop(
             name = body.name,
             category = bodycategory,
