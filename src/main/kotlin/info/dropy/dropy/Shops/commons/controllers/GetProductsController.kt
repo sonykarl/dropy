@@ -19,8 +19,8 @@ class GetProductsController @Autowired constructor(private val productsService: 
     }
 
     @GetMapping("shopAllProducts/{id}")
-    fun getShopProducts(@PathVariable id: String): ResponseEntity<Any>{
-        val shopProducts = productsService.showShopProducts(shopId = id.toLong())
+    fun getShopProducts(@PathVariable id: Long): ResponseEntity<Any>{
+        val shopProducts = productsService.showShopProducts(shopId = id)
         return ResponseEntity.ok()
             .body(shopProducts)
     }
