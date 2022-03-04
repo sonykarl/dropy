@@ -14,7 +14,7 @@ class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
     }
 
     fun getShopDetailsByFirebaseId(firebase_id: String?): Shop?{
-        val shop = shopRepo.findByFirebaseid(firebase_id = firebase_id)
+        val shop = shopRepo.findByfirebaseid(firebase_id = firebase_id)
 
         return shop
     }
