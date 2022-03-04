@@ -14,7 +14,10 @@ import java.util.*
 
 @RestController
 @RequestMapping("api/v1/shopkeeper/addproducts")
-class AddProductController @Autowired constructor(private val addProductService: AddProductService, private val shopDetailsService: ShopDetailsService){
+class AddProductController @Autowired constructor(
+    private val addProductService: AddProductService,
+    private val shopDetailsService: ShopDetailsService
+    ){
 
     @PostMapping
     fun addProducts(

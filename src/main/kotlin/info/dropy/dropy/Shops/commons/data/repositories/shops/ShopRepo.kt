@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ShopRepo: JpaRepository<Shop,Long> {
-    fun findByFirebaseId(firebase_id: String?): Shop
+    fun findByFirebaseid(firebase_id: String?): Shop
     fun findByCategoryId(category: Long?): List<Shop>?
     fun findById(id: Long?): Shop?
 }

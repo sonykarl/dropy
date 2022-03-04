@@ -46,8 +46,8 @@ class GetShopsController @Autowired constructor(
     }
 
     @GetMapping("{firebaseId}")
-    fun getShopByFirebaseId(@PathVariable firebaseId:String): ResponseEntity<Any>{
-        val shop = shopDetailsService.getShopDetailsByEmail(firebaseId)
+    fun getShopByFirebaseId(@PathVariable firebaseId:String?): ResponseEntity<Any>{
+        val shop = shopDetailsService.getShopDetailsByFirebaseId(firebase_id = firebaseId)
         return ResponseEntity.ok()
             .body(shop)
     }

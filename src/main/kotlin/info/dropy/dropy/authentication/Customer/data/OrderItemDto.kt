@@ -8,6 +8,6 @@ data class OrderItemDto (
     val id: Long? = null,
     val product: Product,
     val quantity: Int,
-    val customer: Customer,
-    val shop: Shop
+    val customerFirebaseId: String?,
+    val shop: Shop,
         )
