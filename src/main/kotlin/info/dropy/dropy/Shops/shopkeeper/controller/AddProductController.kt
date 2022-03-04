@@ -25,7 +25,7 @@ class AddProductController @Autowired constructor(
     ){
         val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
         val currentDate = simpleDateFormat.format(Date())
-        val getshop = shopDetailsService.getShopDetailsByEmail(body.firebase_id)
+        val getshop = shopDetailsService.getShopDetailsByFirebaseId(firebase_id = body.firebase_id)
         val product = Product(
             category = ProductCategory(
                 name = body.category, created_at = currentDate
