@@ -9,17 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileInputStream
-import java.io.InputStreamReader
-import java.lang.Character.toString
-import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.nio.file.Paths
-import java.util.Arrays.toString
 import javax.servlet.http.HttpServletResponse
-import kotlin.reflect.full.memberProperties
+
 
 @RestController
 @RequestMapping("api/v1/shops")
@@ -33,10 +24,7 @@ class GetShopsController @Autowired constructor(
         return ResponseEntity.ok()
             .body(shops)
     }
-//    @GetMapping("popularShops")
-//    fun getPopularShops(response: HttpServletResponse): ResponseEntity<Any>{
-//        val shops = shopDetailsService
-//    }
+
 
     @GetMapping("{id}")
     fun getIndividualShop(@PathVariable id: String): ResponseEntity<Any>{
