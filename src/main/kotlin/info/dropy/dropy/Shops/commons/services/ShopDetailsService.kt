@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ShopDetailsService @Autowired constructor(private val shopRepo: ShopRepo){
+class ShopDetailsService @Autowired constructor(
+    private val shopRepo: ShopRepo
+    ){
 
     fun getShopDetails(id: Long?): Shop? {
         val shop = shopRepo.findById(id)
