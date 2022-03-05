@@ -25,6 +25,6 @@ data class Shop (
     val longitude: Double? = null,
     @Column(name = "phonenumber")
     val phoneNumber: Long?,
-    @Column(name = "firebaseid")
+    @Column(name = "firebase_id")
     val firebaseId: String?
 )
