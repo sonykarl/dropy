@@ -17,7 +17,7 @@ class OrdersService @Autowired constructor(
 
     fun getShopOrderByStatus(status:String,firebaseId:String?): List<Orders?>? {
         val myShop = shopDetailsService.getShopDetailsByFirebaseId(firebase_id = firebaseId)
-        val ordersByStatus = myShop?.let { repo.findOrdersByStatus(orderStatus = status, shopId = it.id) }
+        val ordersByStatus = myShop?.let { repo.findAllByStatusAndShopId(orderStatus = status, shopId = it.id) }
         return ordersByStatus
     }
 
