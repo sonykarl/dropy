@@ -45,7 +45,7 @@ class ShopRegistrationController  @Autowired constructor(
             phoneNumber = body.phoneNumber,
             latitude = body.shopLatitude,
             longitude = body.shopLongitude,
-            firebaseId = body.firebaseId
+            firebase = body.firebaseId
         )
         shopService.registerShop(shop,bodycategory)
 //        if (emailExists != null && shopsLogo.isEmpty){

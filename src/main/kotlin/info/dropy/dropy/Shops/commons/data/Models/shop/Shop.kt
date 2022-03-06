@@ -26,5 +26,5 @@ data class Shop (
     @Column(name = "phonenumber")
     val phoneNumber: Long?,
     @Column(name = "firebase", unique = true)
-    val firebaseId: String?
+    val firebase: String?
 )
