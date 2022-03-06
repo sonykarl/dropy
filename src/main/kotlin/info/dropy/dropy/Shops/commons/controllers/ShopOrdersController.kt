@@ -38,4 +38,21 @@ class ShopOrdersController @Autowired constructor(
         }
 
     }
+
+    @GetMapping("shopordernumbers/{firebaseId}")
+    fun getMyShopOrdersNumbers(
+        @PathVariable firebaseId: String?
+    ):ResponseEntity<Any>{
+        val shop = shopDetailsService.getShopDetailsByFirebaseId(firebaseId)
+        if (shop != null){
+            val shopOrders = shop?.let { ordersService.getShopOrders(id = it.id) }
+            val orderSize = shopOrders?.size
+            return ResponseEntity.ok()
+                .body(orderSize)
+        }else{
+            return ResponseEntity.ok()
+                .body(null)
+        }
+
+    }
 }

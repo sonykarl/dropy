@@ -9,7 +9,7 @@ import javax.persistence.NamedNativeQuery
 
 @Repository
 interface Productrepo: JpaRepository<Product,Long> {
-    fun findByShopId(shopId:Long): List<Product?>?
+    fun findByShopId(shopId:Long?): List<Product?>?
 
     fun findByCategoryId(categoryId: Long): List<Product>?
 
