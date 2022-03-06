@@ -9,5 +9,5 @@ data class OrderStatus(
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long,
     @Column(name = "status")
-    val status: Boolean
+    val status: String
     )

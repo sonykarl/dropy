@@ -55,4 +55,32 @@ class ShopOrdersController @Autowired constructor(
         }
 
     }
+
+
+    @GetMapping ("shopIncomingOrders/{firebaseId}")
+    fun getIncomingOrders(
+        @PathVariable firebaseId: String?
+    ):ResponseEntity<Any>{
+        val incomingOrders = ordersService.getShopOrderByStatus("incoming", firebaseId = firebaseId)
+        return ResponseEntity.ok()
+            .body(incomingOrders)
+    }
+
+    @GetMapping("shopProcessedOrders/{firebaseId}")
+    fun getProcessedOrders(
+        @PathVariable firebaseId: String?
+    ):ResponseEntity<Any>{
+        val processedOrders = ordersService.getShopOrderByStatus("processed", firebaseId = firebaseId)
+        return ResponseEntity.ok()
+            .body(processedOrders)
+    }
+
+    @GetMapping("shopDeliveredOrders/{firebaseId}")
+    fun getDeliveredOrders(
+        @PathVariable firebaseId: String?
+    ):ResponseEntity<Any>{
+        val deliveredOrders = ordersService.getShopOrderByStatus("delivered", firebaseId = firebaseId)
+        return  ResponseEntity.ok()
+            .body(deliveredOrders)
+    }
 }
