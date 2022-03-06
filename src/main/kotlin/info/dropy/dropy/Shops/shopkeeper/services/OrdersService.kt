@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 class OrdersService @Autowired constructor(
     private val repo: OrdersRepo
 ) {
-    fun getShopOrders(id: Long): List<Orders>?{
+    fun getShopOrders(id: Long): List<Orders?>?{
         return repo.findAllByShopId(id)
     }
 }

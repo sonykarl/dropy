@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface OrdersRepo: JpaRepository<Orders, Long> {
-    fun findAllByShopId(shopId:Long): List<Orders>?
-    fun findAllByCustomerId(customerId:Long): List<Orders>?
+    fun findAllByShopId(shopId:Long): List<Orders?>?
+    fun findAllByCustomerId(customerId:Long): List<Orders?>?
 }

@@ -1,5 +1,6 @@
 package info.dropy.dropy.Shops.commons.controllers
 
+import info.dropy.dropy.Shops.commons.services.ShopDetailsService
 import info.dropy.dropy.Shops.shopkeeper.services.OrdersService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -10,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("api/v1/shops/shoporders")
-class ShopOrders @Autowired constructor(
-    private val ordersService: OrdersService
+class ShopOrdersController @Autowired constructor(
+    private val ordersService: OrdersService,
+    private val shopDetailsService: ShopDetailsService
     ){
 
     @GetMapping("{shopId}")
@@ -19,5 +21,21 @@ class ShopOrders @Autowired constructor(
         val shopOrders = ordersService.getShopOrders(id = shopId!!.toLong())
         return ResponseEntity.ok()
             .body(shopOrders)
+    }
+
+    @GetMapping("shopfirebaseId/{firebaseId}")
+    fun getMyShopOrders(
+        @PathVariable firebaseId: String?
+    ):ResponseEntity<Any>{
+        val shop = shopDetailsService.getShopDetailsByFirebaseId(firebaseId)
+        if (shop != null){
+            val shopOrders = shop?.let { ordersService.getShopOrders(id = it.id) }
+            return ResponseEntity.ok()
+                .body(shopOrders)
+        }else{
+            return ResponseEntity.ok()
+                .body(null)
+        }
+
     }
 }
