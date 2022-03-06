@@ -1,6 +1,7 @@
 package info.dropy.dropy.Shops.commons.controllers
 
 
+import info.dropy.dropy.Shops.commons.data.Models.shop.Shop
 import info.dropy.dropy.Shops.commons.services.ShopDetailsService
 
 import org.springframework.beans.factory.annotation.Autowired
@@ -36,7 +37,7 @@ class GetShopsController @Autowired constructor(
     @GetMapping("getshops/{firebaseId}")
     fun getShopByFirebaseId(
         @PathVariable firebaseId:String?
-    ): ResponseEntity<Any>{
+    ): ResponseEntity<Shop?>{
         val shop = shopDetailsService.getShopDetailsByFirebaseId(firebase_id = firebaseId)
         return ResponseEntity.ok()
             .body(shop)
