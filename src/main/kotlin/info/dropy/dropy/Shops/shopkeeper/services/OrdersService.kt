@@ -20,4 +20,5 @@ class OrdersService @Autowired constructor(
         val ordersByStatus = myShop?.let { repo.findOrdersByStatus(orderStatus = status, shopId = it.id) }
         return ordersByStatus
     }
+
 }
