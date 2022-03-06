@@ -27,14 +27,14 @@ class GetShopsController @Autowired constructor(
     }
 
 
-    @GetMapping("getshops/{id}")
+    @GetMapping("getshopsbyid/{id}")
     fun getIndividualShop(@PathVariable id: String): ResponseEntity<Any>{
         val shop = shopDetailsService.getShopDetails(id = id.toLong())
         return ResponseEntity.ok()
             .body(shop)
     }
 
-    @GetMapping("getshops/{firebaseId}")
+    @GetMapping("getshopsbyfirebase/{firebaseId}")
     fun getShopByFirebaseId(
         @PathVariable firebaseId:String?
     ): ResponseEntity<Shop?>{
