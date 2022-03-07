@@ -1,10 +1,8 @@
 package info.dropy.dropy.Shops.commons.data.repositories.shops
 
-import info.dropy.dropy.Customers.data.orders.OrderStatus
+
 import info.dropy.dropy.Shops.commons.data.Models.orders.Orders
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
-import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
