@@ -6,6 +6,7 @@ import info.dropy.dropy.Shops.commons.data.Models.orders.Orders
 import info.dropy.dropy.Shops.commons.services.OrderItemService
 import info.dropy.dropy.Shops.commons.services.OrdersCustomerService
 import info.dropy.dropy.authentication.Customer.data.OrderItemDto
+import jdk.jpackage.internal.Log
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -24,6 +25,8 @@ class CustomerOrdersController @Autowired constructor(
         val orderItem = customer?.let { OrderItem(id = body.id, product = body.product, quantity = body.quantity, customer = it,shop = body.shop) }
         if (orderItem != null) {
             orderItemService.addOrderItem(orderItem = orderItem)
+        }else{
+            Log.error("Error in addingOrderitem")
         }
     }
 
