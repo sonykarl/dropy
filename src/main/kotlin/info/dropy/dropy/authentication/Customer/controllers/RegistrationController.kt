@@ -31,6 +31,7 @@ class RegistrationController @Autowired constructor(
     fun updateFirebaseId(
         @RequestBody customer: Customer
     ){
+
         authService.saveCustomer(customer = customer)
     }
 
