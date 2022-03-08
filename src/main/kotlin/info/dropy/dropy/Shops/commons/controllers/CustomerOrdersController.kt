@@ -25,8 +25,6 @@ class CustomerOrdersController @Autowired constructor(
         val orderItem = customer?.let { OrderItem(id = body.id, product = body.product, quantity = body.quantity, customer = it,shop = body.shop) }
         if (orderItem != null) {
             orderItemService.addOrderItem(orderItem = orderItem)
-        }else{
-            Log.error("Error in addingOrderitem")
         }
     }
 
