@@ -20,13 +20,21 @@ class CustomerOrdersController @Autowired constructor(
 
     @PostMapping("addOrderItem")
     fun addOrderItem(@RequestBody body: OrderItemDto){
-        val orderItem = OrderItem(
-            product = body.product,
-            quantity = body.quantity,
-            shop = body.shop,
-            customer = body.customer
-        )
-        orderItemService.addOrderItem(orderItem = orderItem)
+        val orderItem = body.product?.let {
+            body.shop?.let { it1 ->
+                body.customer?.let { it2 ->
+                    OrderItem(
+                        product = it,
+                        quantity = body.quantity,
+                        shop = it1,
+                        customer = it2
+                    )
+                }
+            }
+        }
+        if (orderItem != null) {
+            orderItemService.addOrderItem(orderItem = orderItem)
+        }
     }
 
     @GetMapping("getOrderItems/{firebaseId}")
