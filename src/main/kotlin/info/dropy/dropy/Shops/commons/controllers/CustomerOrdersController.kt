@@ -21,7 +21,7 @@ class CustomerOrdersController @Autowired constructor(
     @PostMapping("addOrderItem")
     fun addOrderItem(@RequestBody body: OrderItemDto){
         val orderItem = OrderItem(
-            id = body.id,
+            id = null,
             product = body.product,
             quantity = body.quantity,
             shop = body.shop,
