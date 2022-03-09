@@ -57,4 +57,13 @@ class GetProductsController @Autowired constructor(
             .body(noOfProducts)
     }
 
+    @GetMapping("singleproduct/{productId}")
+    fun getSingleProduct(
+        @PathVariable productId:Long
+    ): ResponseEntity<Any>{
+        val product = productsService.showProduct(productId = productId)
+        return ResponseEntity.ok()
+            .body(product)
+    }
+
 }

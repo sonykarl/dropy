@@ -35,7 +35,7 @@ class CustomerOrdersController @Autowired constructor(
     }
 
     @GetMapping("customerOrderItems/{customerId}")
-    fun getCustomerOrders(
+    fun getCustomerOrdersItems(
         @PathVariable customerId:Long
     ): ResponseEntity<Any>{
         val orderItems =  orderItemService.getCustomerOrderItems(customerId)

@@ -6,6 +6,7 @@ import info.dropy.dropy.Shops.commons.data.repositories.products.ProductCategory
 import info.dropy.dropy.Shops.commons.data.repositories.products.Productrepo
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.*
 import javax.persistence.Id
 
 @Service
@@ -27,6 +28,9 @@ class ShopProductsService @Autowired constructor(private val productrepo: Produc
         return productrepo.getCategories()
     }
 
+    fun showProduct(productId:Long): Optional<Product> {
+        return productrepo.findById(productId = productId)
+    }
 //    fun productCategoryById(id: Long): List<ProductCategory>?{
 //        return productCategoryrepo.findById(id = Long)
 //    }
