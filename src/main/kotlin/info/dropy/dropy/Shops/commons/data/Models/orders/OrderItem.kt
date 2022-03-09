@@ -10,12 +10,12 @@ data class OrderItem(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val product: Product,
     @Column(name = "quantity")
     val quantity: Int,
-    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val customer: Customer,
-    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val shop: Shop
+    @Column(name = "product")
+    val product: Int,
+    @Column(name = "shop")
+    val shop: Int,
+    @Column(name = "customer")
+    val customer: Int
     )
