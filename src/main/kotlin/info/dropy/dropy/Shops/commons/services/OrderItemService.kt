@@ -17,4 +17,8 @@ class OrderItemService @Autowired constructor(
         return orderItemRepo.findAll()
     }
 
+    fun getCustomerOrderItems(customer:Long):List<OrderItem?>{
+        return orderItemRepo.findByCustomer(customer)
+    }
+
 }
