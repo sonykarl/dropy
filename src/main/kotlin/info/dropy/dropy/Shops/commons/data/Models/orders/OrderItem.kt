@@ -9,7 +9,7 @@ import javax.persistence.*
 data class OrderItem(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long?,
+    val id: Long = 0,
     @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val product: Product,
     @Column(name = "quantity")
