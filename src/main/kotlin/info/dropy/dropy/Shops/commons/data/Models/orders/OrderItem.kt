@@ -13,9 +13,9 @@ data class OrderItem(
     @Column(name = "quantity")
     val quantity: Int,
     @Column(name = "product")
-    val product: Int,
+    val product: Long,
     @Column(name = "shop")
-    val shop: Int,
+    val shop: Long,
     @Column(name = "customer")
-    val customer: Int
+    val customer: Long
     )
