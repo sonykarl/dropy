@@ -17,5 +17,8 @@ class OrderItemService @Autowired constructor(
         return orderItemRepo.findByCustomerId(id = customerId)
     }
 
+    fun getAllItems():List<OrderItem?>{
+        return orderItemRepo.findAll()
+    }
 
 }

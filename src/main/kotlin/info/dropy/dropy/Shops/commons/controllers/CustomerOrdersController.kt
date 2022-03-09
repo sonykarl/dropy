@@ -39,4 +39,11 @@ class CustomerOrdersController @Autowired constructor(
     fun addOrder(@RequestBody order:Orders){
         ordersService.addOrder(order = order)
     }
+
+    @GetMapping("getAllOrderItems")
+    fun getAllOrderItems():ResponseEntity<Any>{
+        val allItems = orderItemService.getAllItems()
+        return ResponseEntity.ok()
+            .body(allItems)
+    }
 }
