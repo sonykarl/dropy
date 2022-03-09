@@ -29,14 +29,6 @@ class CustomerOrdersController @Autowired constructor(
         orderItemService.addOrderItem(orderItem)
     }
 
-    @GetMapping("getOrderItems/{firebaseId}")
-    fun getOrderItems(@PathVariable firebaseId:String?): ResponseEntity<Any>{
-        val customer = firebaseId?.let { customerDataServices.findByFirebaseId(firebaseId = it) }
-        val customerOrderItems = customer?.let { orderItemService.getOrderItems(customerId = it.id) }
-        return ResponseEntity.ok()
-            .body(customerOrderItems)
-    }
-
     @PostMapping("addOrder")
     fun addOrder(@RequestBody order:Orders){
         ordersService.addOrder(order = order)

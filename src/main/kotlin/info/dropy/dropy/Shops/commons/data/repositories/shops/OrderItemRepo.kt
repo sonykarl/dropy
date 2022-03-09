@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface OrderItemRepo: JpaRepository<OrderItem, Long> {
-    fun findByCustomerId(id: Long): List<OrderItem>?
 }
