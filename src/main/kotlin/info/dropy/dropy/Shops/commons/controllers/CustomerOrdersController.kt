@@ -19,9 +19,8 @@ class CustomerOrdersController @Autowired constructor(
         ){
 
     @PostMapping("addOrderItem")
-    fun addOrderItem(@RequestBody body: OrderItemDto){
-        val customer = customerDataServices.findByPhoneNumber(body.phoneNumber)
-        val orderItem = customer?.let { OrderItem(id = body.id, product = body.product, quantity = body.quantity, customer = it,shop = body.shop) }
+    fun addOrderItem(@RequestBody body: OrderItem){
+        val orderItem = body
         if (orderItem != null) {
             orderItemService.addOrderItem(orderItem = orderItem)
         }
