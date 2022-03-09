@@ -17,5 +17,7 @@ data class OrderItem(
     @Column(name = "shop")
     val shop: Long,
     @Column(name = "customer")
-    val customer: Long
+    val customer: Long,
+    @Column(name = "price")
+    val price: Int?
     )

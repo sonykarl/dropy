@@ -24,7 +24,8 @@ class CustomerOrdersController @Autowired constructor(
             quantity = body.quantity,
             product = body.product,
             customer = body.customer,
-            shop = body.shop
+            shop = body.shop,
+            price = body.price
         )
         orderItemService.addOrderItem(orderItem)
     }

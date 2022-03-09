@@ -5,5 +5,6 @@ data class OrderItemDto (
     val quantity: Int,
     val product: Long,
     val shop: Long,
-    val customer: Long
+    val customer: Long,
+    val price: Int?
         )
