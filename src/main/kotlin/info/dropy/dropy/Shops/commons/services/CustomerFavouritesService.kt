@@ -20,4 +20,8 @@ class CustomerFavouritesService @Autowired constructor(
     fun findAllFavourites(): List<CustomerFavourites>{
         return customerFavouritesrepo.findAll()
     }
+
+    fun saveCustomerFavourites(customerFavourites: CustomerFavourites){
+         customerFavouritesrepo.save(customerFavourites)
+    }
 }

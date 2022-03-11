@@ -41,13 +41,12 @@ class CustomerFavouritesController @Autowired constructor(
     @PostMapping("addfavourites")
     fun addCustomerFavourites(
         @RequestBody body:CustomerFavouritesDto
-    ):ResponseEntity<Any>{
+    ){
         val favourite = CustomerFavourites(
             customer = body.customer,
             shop = body.shop
         )
-        return  ResponseEntity.ok()
-            .body(favourite)
+        customerFavouritesService.saveCustomerFavourites(customerFavourites = favourite)
     }
 
 }
