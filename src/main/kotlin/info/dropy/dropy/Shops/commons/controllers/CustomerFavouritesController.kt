@@ -13,7 +13,7 @@ class CustomerFavouritesController @Autowired constructor(
     private val customerFavouritesService: CustomerFavouritesService
 ){
 
-    @GetMapping("customerfavourites/{id)")
+    @GetMapping("getcustomerfavourites/{id)")
     fun findCustomerFavourites(
         @PathVariable id:Long
     ): ResponseEntity<Any>{
