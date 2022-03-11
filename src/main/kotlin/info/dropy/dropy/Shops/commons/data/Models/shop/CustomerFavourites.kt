@@ -8,8 +8,8 @@ data class CustomerFavourites (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0,
-    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val customer: Customer?,
-    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val shops: Shop?
+    @Column(name = "customer")
+    val customer: Long,
+    @Column(name = "shop")
+    val shop: Long
         )
