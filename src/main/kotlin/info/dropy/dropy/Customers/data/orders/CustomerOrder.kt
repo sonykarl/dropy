@@ -23,7 +23,7 @@ data class CustomerOrder(
     val other_order_details: String,
     @OneToMany
     @JoinColumn(name = "fk_order")
-    val ordered_products: List<OrderItem?>,
+    val ordered_products: List<OrderItem?> = listOf(),
     @Column(name = "shop")
     val shop: Int
 )
