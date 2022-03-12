@@ -13,8 +13,8 @@ data class Orders (
     val customer: Customer,
     @Column(name = "orderdate")
     val orderDate: String,
-    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val shop: Shop,
+    @Column(name = "shop")
+    val shop: Long,
     @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val orderItems: List<OrderItem>?,
     @Column(name = "status")
