@@ -21,9 +21,9 @@ data class CustomerOrder(
     val total_price: Int,
     @Column(name = "ordered_items")
     val other_order_details: String,
-    @OneToMany
-    @JoinColumn(name = "fk_order")
-    val ordered_products: List<OrderItem?> = listOf(),
+//    @OneToMany
+//    @JoinColumn(name = "fk_order")
+//    val ordered_products: List<OrderItem?> = listOf(),
     @Column(name = "shop")
     val shop: Int
 )
