@@ -8,7 +8,7 @@ import javax.persistence.*
 @Entity
 data class CustomerOrder(
     @Id
-    val id: Long = 0,
+    val id: Long? = 0,
     @Column(name = "customer")
     val customer: Long,
     @Column(name = "status")
