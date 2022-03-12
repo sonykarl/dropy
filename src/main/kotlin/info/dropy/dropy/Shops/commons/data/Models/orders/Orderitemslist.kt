@@ -18,7 +18,4 @@ data class Orderitemslist (
         val price: Int?,
         @Column(name = "status")
         val status: String? = "unordered",
-        @ManyToOne
-        @JoinColumn(name = "fk_order")
-        val order: CustomerOrder
-        )
+)
