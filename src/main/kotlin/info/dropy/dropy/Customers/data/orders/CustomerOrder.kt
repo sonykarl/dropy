@@ -8,22 +8,23 @@ import javax.persistence.*
 @Entity
 data class CustomerOrder(
     @Id
-    val id: Long? = 0,
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long = 0,
     @Column(name = "customer")
-    val customer: Long,
+    val customer: Long?,
     @Column(name = "status")
-    val status: String,
+    val status: String?,
     @Column(name = "date_placed")
-    val date_placed: String,
+    val date_placed: String?,
     @Column(name = "date_paid")
-    val date_paid: String,
+    val date_paid: String?,
     @Column (name = "total_price")
-    val total_price: Int,
-    @Column(name = "ordered_items")
-    val other_order_details: String,
-//    @OneToMany
-//    @JoinColumn(name = "fk_order")
-//    val ordered_products: List<OrderItem?> = listOf(),
+    val total_price: Int?,
+    @Column(name = "other_order_details")
+    val other_order_details: String?,
+    @OneToMany
+    @JoinColumn(name = "fk_order")
+    val ordered_products: List<OrderItem?> = listOf(),
     @Column(name = "shop")
-    val shop: Int
+    val shop: Int?
 )

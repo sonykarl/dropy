@@ -73,22 +73,21 @@ class CustomerOrdersController @Autowired constructor(
     @PostMapping("addedcustomer/customerorder")
     fun addCustomerOrder(
         @RequestBody body: AddCustomerOrderDto
-    ){
-//        val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
-//        val currentDate = simpleDateFormat.format(Date()).toString()
-        val currentdate = "fdfdfndfdf"
-
+    ):String{
+        val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
+        val currentDate = simpleDateFormat.format(Date()).toString()
         val order = CustomerOrder(
             customer = body.customer,
             status = body.status,
-            date_placed = currentdate,
-            date_paid = currentdate,
+            date_placed = currentDate,
+            date_paid = currentDate,
             total_price = body.total_price,
             other_order_details = body.other_order_details,
-//            ordered_products = body.ordered_products,
+            ordered_products = body.ordered_products,
             shop = body.shop
         )
         customerOrderService.addCustomerOrder(order)
+        return "order done"
     }
 
     @GetMapping("getorderitemsshop/{shopId}")
