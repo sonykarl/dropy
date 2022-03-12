@@ -116,4 +116,9 @@ class CustomerOrdersController @Autowired constructor(
         return ResponseEntity.ok()
             .body(orderslists)
     }
+
+    @GetMapping("deleteorders")
+    fun deleteorders(){
+        ordersCustomerService.deleteOrders()
+    }
 }

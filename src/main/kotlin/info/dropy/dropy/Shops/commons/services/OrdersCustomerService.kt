@@ -25,4 +25,9 @@ class OrdersCustomerService @Autowired constructor(
         return orderslists
     }
 
+    fun deleteOrders(){
+        ordersRepo.deleteAll()
+    }
+
+
 }
