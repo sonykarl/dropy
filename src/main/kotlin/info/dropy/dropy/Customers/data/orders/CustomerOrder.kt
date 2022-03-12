@@ -22,7 +22,7 @@ data class CustomerOrder(
     val other_order_details: String,
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customerOrder")
     @Column(name = "ordered_products")
-    val ordered_products: List<OrderItem>,
+    val ordered_products: List<OrderItem?>,
     @Column(name = "shop")
     val shop: Int
 )
