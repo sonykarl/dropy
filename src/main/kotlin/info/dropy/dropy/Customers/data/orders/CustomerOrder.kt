@@ -2,6 +2,7 @@ package info.dropy.dropy.Customers.data.orders
 
 import info.dropy.dropy.Customers.data.models.Customer
 import info.dropy.dropy.Shops.commons.data.Models.orders.OrderItem
+import info.dropy.dropy.Shops.commons.data.Models.orders.Orderitemslist
 import javax.persistence.*
 
 @Entity
@@ -20,9 +21,8 @@ data class CustomerOrder(
     val total_price: Int,
     @Column(name = "ordered_items")
     val other_order_details: String,
-    @ElementCollection
-    @CollectionTable(name = "ordered_products")
-    val ordered_products: List<OrderItem?>,
+    @OneToMany(mappedBy = "order")
+    val ordered_products: List<Orderitemslist?>,
     @Column(name = "shop")
     val shop: Int
 )
