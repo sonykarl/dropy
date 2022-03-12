@@ -106,4 +106,14 @@ class CustomerOrdersController @Autowired constructor(
         return ResponseEntity.ok()
             .body(orders)
     }
+
+    @GetMapping("getbystatusandshop/{status}/{shopId}")
+    fun getbystatusandshop(
+        @PathVariable("status")status:String,
+        @PathVariable("shopId")shopId: Long
+    ): ResponseEntity<Any>{
+        val orderslists  = ordersCustomerService.getOrdersbystatusandcustomer(status = status, shop = shopId)
+        return ResponseEntity.ok()
+            .body(orderslists)
+    }
 }

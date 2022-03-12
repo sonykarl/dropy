@@ -18,4 +18,11 @@ class OrdersCustomerService @Autowired constructor(
         val orders = ordersRepo.findAll()
         return orders
     }
+
+    fun getOrdersbystatusandcustomer(status:String, shop:Long):List<Orders?>
+    {
+        val orderslists = ordersRepo.findByStatusAndShop(status = status, shopId = shop)
+        return orderslists
+    }
+
 }
