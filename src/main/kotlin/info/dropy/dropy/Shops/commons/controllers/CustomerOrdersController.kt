@@ -75,7 +75,7 @@ class CustomerOrdersController @Autowired constructor(
         @RequestBody body: AddCustomerOrderDto
     ){
         val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
-        val currentDate = simpleDateFormat.format(Date())
+        val currentDate = simpleDateFormat.format(Date()).toString()
         customerOrderService.addCustomerOrder(order = CustomerOrder(
             customer = body.customer,
             status = body.status,
