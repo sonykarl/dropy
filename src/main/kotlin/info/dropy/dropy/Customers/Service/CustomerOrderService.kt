@@ -11,8 +11,7 @@ class CustomerOrderService @Autowired constructor(
 ) {
 
     fun addCustomerOrder(order: CustomerOrder){
-
-            orderrepo.save(order)
+        orderrepo.save(order)
     }
 
     fun getAllOrders():List<CustomerOrder>{

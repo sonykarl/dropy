@@ -22,9 +22,8 @@ data class OrderItem(
     @Column(name = "price")
     val price: Int?,
     @Column(name = "status")
-    val status: String? = "unordered"
-    ) {
+    val status: String? = "unordered",
     @ManyToOne
     @JoinColumn(name = "customer_order_id")
-    open var customerOrder: CustomerOrder? = null
-}
+    val customerOrder: CustomerOrder? = null
+    )
