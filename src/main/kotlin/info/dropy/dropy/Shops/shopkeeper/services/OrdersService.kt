@@ -12,7 +12,7 @@ class OrdersService @Autowired constructor(
     private val shopDetailsService: ShopDetailsService
 ) {
     fun getShopOrders(id: Long): List<Orders?>?{
-        return repo.findAllByShopId(id)
+        return repo.findAllByShop(id)
     }
 
     fun getShopOrderByStatus(status:String,firebaseId:String?): List<Orders?>? {
