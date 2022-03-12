@@ -19,5 +19,7 @@ data class OrderItem(
     @Column(name = "customer")
     val customer: Long,
     @Column(name = "price")
-    val price: Int?
+    val price: Int?,
+    @Column(name = "status")
+    val status: String? = "unordered"
     )

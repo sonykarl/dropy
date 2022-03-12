@@ -34,20 +34,18 @@ class CustomerOrdersController @Autowired constructor(
         orderItemService.addOrderItem(orderItem)
     }
 
-    @PostMapping("addOrder")
-    fun addOrder(@RequestBody body:AddOrderDtop){
-        val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
-        val currentDate = simpleDateFormat.format(Date())
+    @PutMapping("confirmOrder")
+    fun confirmOrder(@RequestBody body: AddOrderDtop){
 
-        ordersService.addOrder(order = Orders(
+        val orderItem = OrderItem(
+            quantity = body.quantity,
+            product = body.product,
             customer = body.customer,
-            cost = body.cost,
             shop = body.shop,
-            orderDate = currentDate,
-            status = "unprocessed",
-            orderItems = body.orderItems
-        ))
-
+            price = body.price,
+            status = body.status
+        )
+        orderItemService.addOrderItem(orderItem)
     }
 
     @GetMapping("customerOrderItems/{customerId}")
