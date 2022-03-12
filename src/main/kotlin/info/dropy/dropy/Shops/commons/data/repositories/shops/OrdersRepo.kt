@@ -9,6 +9,5 @@ import org.springframework.stereotype.Repository
 interface OrdersRepo: JpaRepository<Orders, Long> {
     fun findAllByShop(shopId:Long): List<Orders?>?
     fun findAllByCustomerId(customerId:Long): List<Orders?>?
-//    @Query("SELECT * FROM ORDERS r WHERE r.status = :status AND r.shop_id = :shopId", nativeQuery = true)
-    fun findByStatusAndShopId(status: String, shopId: Long):List<Orders?>
+    fun findByStatusAndShop(status: String, shopId: Long):List<Orders?>
 }
