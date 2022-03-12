@@ -13,4 +13,9 @@ class OrdersCustomerService @Autowired constructor(
     fun addOrder(order: Orders){
         ordersRepo.save(order)
     }
+
+    fun getOrders():List<Orders>{
+        val orders = ordersRepo.findAll()
+        return orders
+    }
 }
