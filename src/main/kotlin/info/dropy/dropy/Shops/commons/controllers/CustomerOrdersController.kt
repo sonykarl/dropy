@@ -1,13 +1,12 @@
 package info.dropy.dropy.Shops.commons.controllers
 
-import info.dropy.dropy.Customers.Service.CustomerDataServices
+import info.dropy.dropy.Customers.Service.CustomerOrderService
+import info.dropy.dropy.Customers.data.orders.CustomerOrder
 import info.dropy.dropy.Shops.commons.data.Models.orders.OrderItem
-import info.dropy.dropy.Shops.commons.data.Models.orders.Orders
+import info.dropy.dropy.Shops.commons.data.dtos.AddCustomerOrderDto
 import info.dropy.dropy.Shops.commons.data.dtos.AddOrderDtop
 import info.dropy.dropy.Shops.commons.services.OrderItemService
-import info.dropy.dropy.Shops.commons.services.OrdersCustomerService
 import info.dropy.dropy.authentication.Customer.data.OrderItemDto
-import org.hibernate.criterion.Order
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -18,8 +17,8 @@ import java.util.*
 @RequestMapping("api/v1/customer/orders")
 class CustomerOrdersController @Autowired constructor(
     private val orderItemService: OrderItemService,
-    private val ordersService: OrdersCustomerService,
-    private val customerDataServices: CustomerDataServices
+    private val customerOrderService: CustomerOrderService
+
         ){
 
     @PostMapping("addOrderItem")
@@ -69,5 +68,22 @@ class CustomerOrdersController @Autowired constructor(
         @RequestBody body:OrderItem
     ){
         orderItemService.deleteOrderItem(body)
+    }
+
+    @PostMapping("addcustomerorder")
+    fun addCustomerOrder(
+        @RequestBody body: AddCustomerOrderDto
+    ){
+        val simpleDateFormat = SimpleDateFormat("dd/M/yyy hh:mm:ss")
+        val currentDate = simpleDateFormat.format(Date())
+        customerOrderService.addCustomerOrder(order = CustomerOrder(
+            customer = body.customer,
+            status = body.status,
+            date_paid = currentDate,
+            date_placed = currentDate,
+            total_price = body.total_price,
+            other_order_details = body.other_order_details,
+            ordered_products = body.ordered_products
+        ))
     }
 }
