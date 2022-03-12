@@ -117,11 +117,11 @@ class CustomerOrdersController @Autowired constructor(
             .body(orderslists)
     }
 
-    @GetMapping("deleteorders")
+    @DeleteMapping("deleteorders")
     fun deleteorders(){
         ordersCustomerService.deleteOrders()
     }
-    @GetMapping("deleteallitems")
+    @DeleteMapping("deleteallitems")
     fun deleteorderitems(){
         orderItemService.deleteAll()
     }
