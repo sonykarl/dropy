@@ -15,8 +15,8 @@ data class Orders (
     val orderDate: String,
     @Column(name = "shop")
     val shop: Long,
-    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val orderItems: List<OrderItem>?,
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    val orderItems: OrderItem,
     @Column(name = "status")
     val status: String = "",
     @Column(name = "cost")

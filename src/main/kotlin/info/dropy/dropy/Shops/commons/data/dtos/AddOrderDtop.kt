@@ -7,7 +7,7 @@ import info.dropy.dropy.Shops.commons.data.Models.shop.Shop
 data class AddOrderDtop (
     val customer: Customer,
     val shop: Long,
-    val orderItems: List<OrderItem>,
+    val orderItems: OrderItem,
     val status: String = "unprocessed",
     val cost: Int
         )
