@@ -70,7 +70,7 @@ class CustomerOrdersController @Autowired constructor(
         orderItemService.deleteOrderItem(body)
     }
 
-    @PostMapping("addcustomerorder")
+    @PostMapping("addedcustomer/customerorder")
     fun addCustomerOrder(
         @RequestBody body: AddCustomerOrderDto
     ){
