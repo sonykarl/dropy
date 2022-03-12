@@ -20,8 +20,8 @@ data class CustomerOrder(
     val total_price: Int,
     @Column(name = "ordered_items")
     val other_order_details: String,
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customerOrder")
-    @Column(name = "ordered_products")
+    @ElementCollection
+    @CollectionTable(name = "ordered_products")
     val ordered_products: List<OrderItem?>,
     @Column(name = "shop")
     val shop: Int
