@@ -5,7 +5,7 @@ import info.dropy.dropy.Shops.commons.data.Models.orders.OrderItem
 
 
 data class AddCustomerOrderDto (
-    val customer: Customer,
+    val customer: Long,
     val status: String,
     val total_price:Int,
     val other_order_details:String,

@@ -8,8 +8,8 @@ import javax.persistence.*
 data class CustomerOrder(
     @Id
     val id: Long = 0,
-    @ManyToOne(fetch = FetchType.LAZY)
-    val customer: Customer,
+    @Column(name = "customer")
+    val customer: Long,
     @Column(name = "status")
     val status: String,
     @Column(name = "date_placed")
@@ -21,6 +21,7 @@ data class CustomerOrder(
     @Column(name = "ordered_items")
     val other_order_details: String,
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customerOrder")
+    @Column(name = "ordered_products")
     val ordered_products: List<OrderItem>,
     @Column(name = "shop")
     val shop: Int
