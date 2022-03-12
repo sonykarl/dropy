@@ -25,4 +25,8 @@ class OrderItemService @Autowired constructor(
         orderItemRepo.delete(orderItem)
     }
 
+    fun getShopOrderItems(shop:Long):List<OrderItem?>{
+        return orderItemRepo.findByShop(shop)
+    }
+
 }

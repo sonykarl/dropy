@@ -87,4 +87,14 @@ class CustomerOrdersController @Autowired constructor(
             shop = body.shop
         ))
     }
+
+    @GetMapping("getorderitemsshop/{shopId}")
+    fun getShopOrderItems(
+        @PathVariable shopId:Long
+    ):ResponseEntity<Any>{
+
+        val orderitems = orderItemService.getShopOrderItems(shopId)
+        return ResponseEntity.ok()
+            .body(orderitems)
+    }
 }
