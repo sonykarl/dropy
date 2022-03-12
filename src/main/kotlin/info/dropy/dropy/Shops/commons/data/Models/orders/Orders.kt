@@ -8,7 +8,7 @@ import javax.persistence.*
 data class Orders (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val Id: Long,
+    val Id: Long = 0,
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val customer: Customer,
     @Column(name = "orderdate")
@@ -16,7 +16,7 @@ data class Orders (
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val shop: Shop,
     @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val OrderItems: List<OrderItem>?,
+    val orderItems: List<OrderItem>?,
     @Column(name = "status")
     val status: String = "",
     @Column(name = "cost")
