@@ -97,4 +97,11 @@ class CustomerOrdersController @Autowired constructor(
         return ResponseEntity.ok()
             .body(orderitems)
     }
+
+    @GetMapping("getAllOrders")
+    fun getAllOrders():ResponseEntity<Any>{
+        val orders = customerOrderService.getAllOrders()
+        return ResponseEntity.ok()
+            .body(orders)
+    }
 }

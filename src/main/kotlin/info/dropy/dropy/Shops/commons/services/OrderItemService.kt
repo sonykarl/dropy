@@ -1,5 +1,6 @@
 package info.dropy.dropy.Shops.commons.services
 
+import info.dropy.dropy.Customers.data.orders.CustomerOrder
 import info.dropy.dropy.Shops.commons.data.Models.orders.OrderItem
 import info.dropy.dropy.Shops.commons.data.repositories.shops.OrderItemRepo
 import org.springframework.beans.factory.annotation.Autowired
@@ -28,5 +29,7 @@ class OrderItemService @Autowired constructor(
     fun getShopOrderItems(shop:Long):List<OrderItem?>{
         return orderItemRepo.findByShop(shop)
     }
+
+
 
 }
