@@ -102,7 +102,7 @@ class CustomerOrdersController @Autowired constructor(
 
     @GetMapping("getAllOrders")
     fun getAllOrders():ResponseEntity<Any>{
-        val orders = ordersCustomerService.getOrders()
+        val orders = ordersCustomerService.getOrders().size
         return ResponseEntity.ok()
             .body(orders)
     }
