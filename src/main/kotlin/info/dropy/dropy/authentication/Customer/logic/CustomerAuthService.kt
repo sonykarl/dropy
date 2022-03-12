@@ -8,7 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 
 @Service
-class CustomerAuthService @Autowired constructor(private val repository: CustomerRepository){
+class CustomerAuthService @Autowired constructor(
+    private val repository: CustomerRepository
+    ){
 
     fun saveCustomer(customer: Customer){
         repository.save(customer)
