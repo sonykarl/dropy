@@ -19,7 +19,7 @@ class AddProductController @Autowired constructor(
     private val shopDetailsService: ShopDetailsService
     ){
 
-    @PostMapping
+    @PostMapping("add")
     fun addProducts(
         @RequestBody body: ProductDto
     ){
