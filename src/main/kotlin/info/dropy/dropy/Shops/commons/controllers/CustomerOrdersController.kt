@@ -121,4 +121,8 @@ class CustomerOrdersController @Autowired constructor(
     fun deleteorders(){
         ordersCustomerService.deleteOrders()
     }
+    @GetMapping("deleteallitems")
+    fun deleteorderitems(){
+        orderItemService.deleteAll()
+    }
 }

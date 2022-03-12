@@ -30,6 +30,10 @@ class OrderItemService @Autowired constructor(
         return orderItemRepo.findByShop(shop)
     }
 
+    fun deleteAll(){
+        orderItemRepo.deleteAll()
+    }
+
 
 
 }
