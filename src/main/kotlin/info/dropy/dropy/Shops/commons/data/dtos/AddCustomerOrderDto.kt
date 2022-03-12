@@ -11,5 +11,6 @@ data class AddCustomerOrderDto (
     val date_paid:String,
     val total_price:Int,
     val other_order_details:String,
-    val ordered_products:List<OrderItem>
+    val ordered_products:List<OrderItem>,
+    val shop: Int
     )

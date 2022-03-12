@@ -83,7 +83,8 @@ class CustomerOrdersController @Autowired constructor(
             date_placed = currentDate,
             total_price = body.total_price,
             other_order_details = body.other_order_details,
-            ordered_products = body.ordered_products
+            ordered_products = body.ordered_products,
+            shop = body.shop
         ))
     }
 }
