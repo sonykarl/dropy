@@ -9,7 +9,6 @@ data class Orders (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val Id: Long = 0,
-    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val customer: Long,
     @Column(name = "orderdate")
     val orderDate: String,
