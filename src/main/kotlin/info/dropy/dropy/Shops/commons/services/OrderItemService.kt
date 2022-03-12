@@ -21,4 +21,8 @@ class OrderItemService @Autowired constructor(
         return orderItemRepo.findByCustomer(customer)
     }
 
+    fun deleteOrderItem(orderItem: OrderItem){
+        orderItemRepo.delete(orderItem)
+    }
+
 }

@@ -63,4 +63,11 @@ class CustomerOrdersController @Autowired constructor(
         return ResponseEntity.ok()
             .body(allItems)
     }
+
+    @DeleteMapping("deleteOrderItem")
+    fun deleteOrder(
+        @RequestBody body:OrderItem
+    ){
+        orderItemService.deleteOrderItem(body)
+    }
 }
