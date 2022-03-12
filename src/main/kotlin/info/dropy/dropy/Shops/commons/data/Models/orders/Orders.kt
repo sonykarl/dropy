@@ -10,7 +10,7 @@ data class Orders (
     @GeneratedValue(strategy = GenerationType.AUTO)
     val Id: Long = 0,
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val customer: Customer,
+    val customer: Long,
     @Column(name = "orderdate")
     val orderDate: String,
     @Column(name = "shop")
